@@ -1,0 +1,114 @@
+== Koncepty
+
+Formát poskytuje statický popis městských parkovišť a parkovišť P+R: identifikaci, název, polohu,
+kapacitu, způsob využití, provozovatele a provozní dobu. Aktuální obsazenost poskytuje samostatný formát
+`cz-ndic_d2-city-parking-status`, který na tuto tabulku odkazuje.
+
+Formát je nový. Vychází z DATEX II publikace `ParkingTablePublication` <<TS16157-6>> a je *lehkou
+podmnožinou* profilu pro parkoviště nákladních vozidel (ITP): používá jen nejnižší úroveň hierarchie –
+parkoviště (`Place`) jako celek. Údaje o parkovištích P+R dosud publikované NDIC jsou omezené; statický
+popis doplní správce parkovišť podle šablony podkladů.
+
+[[obalka]]
+=== Obálka a hlavička publikace
+
+Každá zpráva je dokument DATEX II 3 s kořenovým elementem `d2:payload`. Obálky `d2LogicalModel`
+a `exchange` z verze 2 se již nepoužívají. Atribut `xsi:type` kořenového elementu určuje typ
+publikace (zde `prk:ParkingTablePublication`), atribut `modelBaseVersion="3"` verzi modelu a atribut `lang` výchozí jazyk
+textů.
+
+Formát, podle kterého je zpráva sestavena, identifikují výhradně atributy kořenového elementu:
+
+[horizontal]
+`profileName`:: identifikátor formátu bez verze (`cz-ndic_d2-city-parking-table`),
+`profileVersion`:: verze formátu (`1.0`).
+
+Hlavička publikace obsahuje:
+
+* `feedType` – odkaz na *zdroj dat* (distribuci) v registru národního přístupového bodu <<nap>>,
+  např. `x-source:cz-ndic_d2-city-parking-table-pull-v1`. Název distribuce tvoří název formátu, případně obsah distribuce (u VMS `fixed`/`mobile`,
+  u sad poloh `fcd`/`weather`), u snímků (pull) protokol `pull` a celé číslo verze distribuce
+  (`-v1`, `-v2`, …), které se mění nezávisle na verzi formátu a navazuje na řadu distribucí v registru.
+  Verze sítě Global Network není součástí `feedType`; nese ji obsah (verze předdefinovaných poloh).
+  Element neodkazuje na formát; ten určují atributy `profileName` a `profileVersion`. Element
+  `feedDescription` se nepoužívá.
+* `publicationTime` – čas vytvoření obsahu publikace. Pokud se obsah od předchozí publikace nezměnil,
+  zůstává čas původní (stejně jako hlavičky HTTP `Last-Modified` a `ETag`); nový čas vzniká jen se
+  změnou obsahu.
+* `publicationCreator` – poskytovatel publikace: kód země malými písmeny (`cz`) a zkratka
+  poskytovatele (`nationalIdentifier`).
+* `headerInformation` – způsob nakládání s informacemi; NDIC uvádí vždy `confidentiality`
+  = `noRestriction` a `informationStatus` = `real`.
+
+Všechny časové údaje ve zprávě se uvádějí včetně časové zóny.
+
+.Kořenový element a hlavička publikace (vzorek `pr-table.xml`)
+[source,xml]
+----
+include::{samplesdir}/pr-table.xml[lines=2]
+include::{samplesdir}/pr-table.xml[tag=header,indent=2]
+  ...
+----
+
+[[tabulka]]
+=== Tabulka parkovišť
+
+Publikace obsahuje tabulku parkovišť `parkingTable` s identifikátorem a verzí (pro P+R
+`CzechParkAndRideTable`), názvem (`name`) a časem vydání verze (`versionTime`). Na identifikátor
+a verzi tabulky odkazuje stavová publikace. Nová verze tabulky vzniká při změně jejího obsahu; nezměněné
+parkoviště si ponechává svůj identifikátor i verzi.
+
+.Tabulka parkovišť (vzorek `pr-table.xml`)
+[source,xml]
+----
+include::{samplesdir}/pr-table.xml[tag=table-head,indent=0]
+----
+
+[[parkoviste]]
+=== Parkoviště
+
+Každé parkoviště je jeden element `hierarchyElementGeneral` typu `prk:Place` s identifikátorem
+`@id` (identifikátor P+R z verze 2 beze změny, např. `PR-2`) a verzí `@version`.
+
+[cols="2,1,4",options="header"]
+|===
+|Element |Povinnost |Obsah
+|`name` |povinný |název parkoviště
+|`locationReference` |povinný |poloha parkoviště, viz <<polohy>>
+|`layer` |povinný |úroveň hierarchie, vždy `0`
+|`type` |povinný |typ prvku hierarchie, vždy `place`
+|`commonComponents/characteristics` |doporučený |kapacita (`spacesTotal`) a typ stavby (`structureType`)
+|`commonComponents/operatingPattern` |doporučený |způsob využití: `prk:UsageScenario` s `type` = `parkAndRide`
+|`operator` |doporučený |provozovatel (název, kontakt – e-mail, telefon)
+|`operatingHours` |doporučený |provozní doba (nepřetržitě / neznámá)
+|`externalIdentifier` |nepovinný |identifikátor parkoviště u správce
+|===
+
+.Parkoviště P+R (vzorek `pr-table.xml`)
+[source,xml]
+----
+include::{samplesdir}/pr-table.xml[tag=place,indent=0]
+----
+
+[[polohy]]
+== Popisování poloh
+
+Poloha parkoviště se uvádí v elementu `locationReference` parkoviště:
+
+* *souřadnice pro zobrazení* – `coordinatesForDisplay` (`latitude`, `longitude` ve WGS-84), které dodá
+  správce parkoviště; cílový a doporučený popis polohy,
+* *odkaz na předdefinovanou polohu* – `loc:LocationByReference` s odkazem na polohu ve formátu
+  `cz-ndic_d2-pls` (`targetClass` = `loc:PredefinedLocation`); používá se přechodně, dokud správce
+  souřadnice nedodá.
+
+Obojí se uvádí v jednom elementu `locationReference` typu `loc:LocationByReference`, který může nést
+zároveň odkaz i `coordinatesForDisplay`.
+
+.Poloha parkoviště – odkaz na předdefinovanou polohu (vzorek `pr-table.xml`)
+[source,xml]
+----
+include::{samplesdir}/pr-table.xml[tag=place-loc,indent=0]
+----
+
+NOTE: Vzorek převedený z verze 2 obsahuje jen odkaz na předdefinovanou polohu; souřadnice
+`coordinatesForDisplay` zdrojová data neobsahovala.

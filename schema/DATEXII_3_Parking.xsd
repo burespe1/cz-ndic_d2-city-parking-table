@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:prk="http://datex2.eu/schema/3/parking" version="1" targetNamespace="http://datex2.eu/schema/3/parking" xmlns:com="http://datex2.eu/schema/3/common" xmlns:fac="http://datex2.eu/schema/3/facilities" xmlns:loc="http://datex2.eu/schema/3/locationReferencing" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://datex2.eu/schema/3/locationReferencing" schemaLocation="DATEXII_3_LocationReferencing.xsd" />
+  <xs:import namespace="http://datex2.eu/schema/3/facilities" schemaLocation="DATEXII_3_Facilities.xsd" />
+  <xs:import namespace="http://datex2.eu/schema/3/common" schemaLocation="DATEXII_3_Common.xsd" />
+  <xs:complexType name="_HierarchyElementTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="prk:HierarchyElementTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_ParkingUsageScenarioEnum">
+    <xs:simpleContent>
+      <xs:extension base="prk:ParkingUsageScenarioEnum">
+        <xs:attribute name="_extendedValue" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_StructureTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="prk:StructureTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Characteristics">
+    <xs:annotation>
+      <xs:documentation>A class defining information concerning characteristics relating to a parking facility.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="structureType" type="prk:_StructureTypeEnum" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Defines the type of parking structure.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="spacesTotal" type="com:NonNegativeInteger" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Total number of parking spaces.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="_characteristicsExtension" type="com:_ExtensionType" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CommonComponents">
+    <xs:annotation>
+      <xs:documentation>A class defining information concerning multiple features relating to place hierarchy elements.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="characteristics" type="prk:Characteristics" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="operatingPattern" type="prk:OperatingPattern" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="_commonComponentsExtension" type="com:_ExtensionType" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HierarchyElementGeneral" abstract="true">
+    <xs:annotation>
+      <xs:documentation>A generalised component of a place hierarchy, that forms one element in the tree-like hierarchy.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="fac:Facility">
+        <xs:sequence>
+          <xs:element name="layer" type="com:NonNegativeInteger" minOccurs="1" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>Indicator of the position of this hierarchy element in the specific hierarchy, with the top of the hierarchy numbered layer 0.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="type" type="prk:_HierarchyElementTypeEnum" minOccurs="1" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>Identifies the type of the hierarchy element</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="_hierarchyElementGeneralExtension" type="com:_ExtensionType" minOccurs="0" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="HierarchyElementTypeEnum">
+    <xs:annotation>
+      <xs:documentation>Defines the supported lists of types of parking hierarchy elements permissible</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="campus">
+        <xs:annotation>
+          <xs:documentation>Typically defines a large facility (such as a university campus, or an airport), or a large geographic zone (such as a city or a town), which may contain numerous places that can be logically reported together.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="place">
+        <xs:annotation>
+          <xs:documentation>A place or location used for parking, loading, unloading, standing, or some other mobility or transport related activity.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="subplaceElement">
+        <xs:annotation>
+          <xs:documentation>A sub-division of a place for the convenience of the operator to segment the place and identify varied uses for parking and mobility related operations or other purposes.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="identifiedArea">
+        <xs:annotation>
+          <xs:documentation>An identifiable discrete bounded geographic zone that shares common characteristics and is used for parking and mobility related operations  or other purposes.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="space">
+        <xs:annotation>
+          <xs:documentation>A single space for parking or other mobility related purposes, usually designed for one vehicle, which may, but not necessarily, be denoted by painted or other road surface marker.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="_extended" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="OperatingPattern" abstract="true">
+    <xs:annotation>
+      <xs:documentation>Specifies a usage scenario or operator restriction, optional with a validity and related location.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="_operatingPatternExtension" type="com:_ExtensionType" minOccurs="0" />
+    </xs:sequence>
+    <xs:attribute name="operatingPatternIndex" type="com:Integer" use="required">
+      <xs:annotation>
+        <xs:documentation>An index to link this element between the static and dynamic publications.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="ParkingTable">
+    <xs:annotation>
+      <xs:documentation>Parking information described by a number of tree-like place hierarchies.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" type="com:MultilingualString" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>The name of the parking table.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="versionTime" type="com:DateTime" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>The date/time that this version of the parking table was defined by the supplier. The identity and version of the table are defined by the class stereotype implementation.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="informationManager" type="com:InternationalIdentifier" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Organisation that manages the information content (is responsible for updates of this information) typically the organisation that first made the DATEX II publication of this content.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="hierarchyElementGeneral" type="prk:HierarchyElementGeneral" maxOccurs="unbounded" />
+      <xs:element name="_parkingTableExtension" type="com:_ExtensionType" minOccurs="0" />
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required" />
+    <xs:attribute name="version" type="xs:string" use="required" />
+  </xs:complexType>
+  <xs:complexType name="ParkingTablePublication">
+    <xs:annotation>
+      <xs:documentation>A publication to define static information about sites or geographic areas designed to park vehicles, organised in tables.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="com:PayloadPublication">
+        <xs:sequence>
+          <xs:element name="headerInformation" type="com:HeaderInformation" minOccurs="0" />
+          <xs:element name="parkingTable" type="prk:ParkingTable" maxOccurs="unbounded" />
+          <xs:element name="_parkingTablePublicationExtension" type="com:_ExtensionType" minOccurs="0" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="ParkingUsageScenarioEnum">
+    <xs:annotation>
+      <xs:documentation>Types of parking usage (park &amp; ride, kiss &amp; ride, ...)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="automatedParkingGarage">
+        <xs:annotation>
+          <xs:documentation>Parking is completely automated from the point of leaving the vehicle in an arrival bay to its delivery back to the driver in a pickup bay.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="carSharing">
+        <xs:annotation>
+          <xs:documentation>A parking site for people who are sharing cars organised by a car sharing company.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="delivery">
+        <xs:annotation>
+          <xs:documentation>Parking for delivery</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="dropOff">
+        <xs:annotation>
+          <xs:documentation>The parking site or space(s) are designed for drop off only.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="dropOffMechanical">
+        <xs:annotation>
+          <xs:documentation>A mechanical drop off service.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="dropOffWithValet">
+        <xs:annotation>
+          <xs:documentation>A valet drop off service.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="eventParking">
+        <xs:annotation>
+          <xs:documentation>Parking is associated with an event. Use 'eventParkingType' to specify the event.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="guidanceToAvailableSpaces">
+        <xs:annotation>
+          <xs:documentation>Specifies, if there is a (visual) guidance system within the parking site, which helps the drivers to find free spaces. Note: This is not a parking VMS or a parking route, which are usually located outside the parking site.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="kissAndRide">
+        <xs:annotation>
+          <xs:documentation>Parking site with possibility for very short parking to drop off (or drop on) passengers for public transport.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="liftshare">
+        <xs:annotation>
+          <xs:documentation>A parking site for people who are sharing their cars.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="motorwayParking">
+        <xs:annotation>
+          <xs:documentation>The parking is located directly on a motorway or a similar type of road.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="nearbyMotorwayParking">
+        <xs:annotation>
+          <xs:documentation>The parking is located with some distance to a motorway or a similar type of road but focussed on travellers from this motorway.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="overnightParking">
+        <xs:annotation>
+          <xs:documentation>The parking site or space(s) are designed for overnight parking. Note that the absence of this scenario does not automatically mean a prohibition of overnight parking. See also PermitsAndProhibitions.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="parkAndCycle">
+        <xs:annotation>
+          <xs:documentation>A parking site for people who continue their journey by bike.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="parkAndDrive">
+        <xs:annotation>
+          <xs:documentation>Parking for users that share their cars.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="parkAndRide">
+        <xs:annotation>
+          <xs:documentation>Parking for public transport users.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="parkAndWalk">
+        <xs:annotation>
+          <xs:documentation>A parking site for people who continue to walk.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="poiParking">
+        <xs:annotation>
+          <xs:documentation>Parking in relation or in the near of a point of interest</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="restArea">
+        <xs:annotation>
+          <xs:documentation>The parking site is associated with a rest area, i.e. people can relax some time outside their car there. Note that the presence of some bench, picnic place or toilet is already sufficient; there is no need for a restaurant or a building.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="serviceArea">
+        <xs:annotation>
+          <xs:documentation>The parking site is associated with a service area.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="specialLocation">
+        <xs:annotation>
+          <xs:documentation>The parking is connected to or part of a special location which can be specified by an extra attribute.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="staffGuidesToSpace">
+        <xs:annotation>
+          <xs:documentation>Staff guides to space.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="truckParking">
+        <xs:annotation>
+          <xs:documentation>The parking site is designed for lorries (other vehicles are allowed as well).</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="vehicleLift">
+        <xs:annotation>
+          <xs:documentation>Vehicle lift</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="zone">
+        <xs:annotation>
+          <xs:documentation>A parking zone.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="other">
+        <xs:annotation>
+          <xs:documentation>Some other usage scenario.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="_extended" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Place">
+    <xs:annotation>
+      <xs:documentation>A place or location used for parking, loading, unloading, standing, or some other mobility or transport related activity.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="prk:HierarchyElementGeneral">
+        <xs:sequence>
+          <xs:element name="commonComponents" type="prk:CommonComponents" minOccurs="0" />
+          <xs:element name="_placeExtension" type="com:_ExtensionType" minOccurs="0" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="StructureTypeEnum">
+    <xs:annotation>
+      <xs:documentation>A list of types of parking structure.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="onStreet">
+        <xs:annotation>
+          <xs:documentation>On-street parking.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="offStreetSurface">
+        <xs:annotation>
+          <xs:documentation>Off-street ground-level at grade parking.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="offStreetStructure">
+        <xs:annotation>
+          <xs:documentation>Off-street multi-tier parking structure.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="_extended" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="UsageScenario">
+    <xs:annotation>
+      <xs:documentation>A special type of usage available for this campus, (sub)place, space or identified area. In the 'ParkingStatusPublication', the operation type (in operation or not) can be defined.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="prk:OperatingPattern">
+        <xs:sequence>
+          <xs:element name="type" type="prk:_ParkingUsageScenarioEnum" minOccurs="1" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>A special type of usage available for this campus, (sub)place, space or identified area. In the 'ParkingStatusPublication', the operation type (in operation or not) can be defined.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="_usageScenarioExtension" type="com:_ExtensionType" minOccurs="0" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

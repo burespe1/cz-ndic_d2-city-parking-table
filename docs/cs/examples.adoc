@@ -1,0 +1,24 @@
+== Příklady zpráv
+
+Vzorky jsou součástí balíčku specifikace `{schema-uri}.zip` (adresář `samples`). Všechny jsou validní vůči
+schématu DATEX II 3.7 a odpovídají výběru profilu (`.sel`).
+
+=== pr-table.xml – tabulka parkovišť P+R
+
+Tabulka `CzechParkAndRideTable` verze 1 s jedním parkovištěm P+R (`PR-2`, P+R Černý Most) převedená ze
+vzorku verze 2.
+
+[source,xml]
+----
+include::{samplesdir}/pr-table.xml[tags=**]
+----
+
+Obálka a hlavička::
+Kořen `d2:payload` typu `prk:ParkingTablePublication` s atributy `profileName` a `profileVersion`,
+`publicationTime` a `publicationCreator`. Odkaz na zdroj dat (`feedType`) je
+`x-source:cz-ndic_d2-city-parking-table-pull-v1`.
+
+Parkoviště::
+Parkoviště `PR-2` na úrovni 0 (`layer`, `type` = `place`) s názvem a způsobem využití P+R
+(`UsageScenario` = `parkAndRide`). Poloha je odkazem na předdefinovanou polohu. Kapacitu, provozovatele,
+provozní dobu a souřadnice doplní správce parkovišť.

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<d2:payload xmlns:d2="http://datex2.eu/schema/3/d2Payload" xmlns:com="http://datex2.eu/schema/3/common" xmlns:loc="http://datex2.eu/schema/3/locationReferencing" xmlns:prk="http://datex2.eu/schema/3/parking" xmlns:fac="http://datex2.eu/schema/3/facilities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="prk:ParkingTablePublication" lang="cs" modelBaseVersion="3" profileName="cz-ndic_d2-city-parking-table" profileVersion="1.0">
+  <!-- tag::header[] -->
+  <com:feedType>x-source:cz-ndic_d2-city-parking-table-pull-v1</com:feedType>
+  <com:publicationTime>2016-05-18T18:49:21+02:00</com:publicationTime>
+  <com:publicationCreator>
+    <com:country>cz</com:country>
+    <com:nationalIdentifier>DRU</com:nationalIdentifier>
+  </com:publicationCreator>
+  <!-- end::header[] -->
+  <prk:headerInformation>
+    <com:confidentiality>noRestriction</com:confidentiality>
+    <com:informationStatus>real</com:informationStatus>
+  </prk:headerInformation>
+  <prk:parkingTable id="CzechParkAndRideTable" version="1">
+    <!-- tag::table-head[] -->
+    <prk:name>
+      <com:values>
+        <com:value lang="cs">Parkoviště P+R</com:value>
+      </com:values>
+    </prk:name>
+    <prk:versionTime>2016-05-18T18:49:21+02:00</prk:versionTime>
+    <!-- end::table-head[] -->
+    <!-- tag::place[] -->
+    <prk:hierarchyElementGeneral xsi:type="prk:Place" id="PR-2" version="1">
+      <fac:name>
+        <com:values>
+          <com:value lang="cs">P+R Černý Most</com:value>
+        </com:values>
+      </fac:name>
+      <!-- tag::place-loc[] -->
+      <fac:locationReference xsi:type="loc:LocationByReference">
+        <loc:predefinedLocationReference id="98D69F80-7E63-422B-A9B7-EEACE24C055C" version="1" targetClass="loc:PredefinedLocation"/>
+      </fac:locationReference>
+      <!-- end::place-loc[] -->
+      <prk:layer>0</prk:layer>
+      <prk:type>place</prk:type>
+      <prk:commonComponents>
+        <prk:operatingPattern xsi:type="prk:UsageScenario" operatingPatternIndex="0">
+          <prk:type>parkAndRide</prk:type>
+        </prk:operatingPattern>
+      </prk:commonComponents>
+    </prk:hierarchyElementGeneral>
+    <!-- end::place[] -->
+  </prk:parkingTable>
+</d2:payload>

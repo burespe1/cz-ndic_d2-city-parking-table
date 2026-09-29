@@ -1,0 +1,15 @@
+# Metadata dokumentace. Verze dokumentace = <format_version>.<revision>
+format_version: '1.0'
+revision: 0
+date: '2026-09-28'
+languages:
+- cs
+- en
+cs:
+  perex: 'Statický popis P+R a městských parkovišť: identifikátor, název, poloha,
+    kapacita, provozovatel.'
+  keywords: DATEX II, NDIC, ParkingTablePublication
+en:
+  perex: 'Static description of P+R and city car parks: identifier, name, location,
+    capacity, operator.'
+  keywords: DATEX II, NDIC, ParkingTablePublication

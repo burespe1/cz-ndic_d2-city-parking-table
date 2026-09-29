@@ -1,0 +1,10 @@
+= Změny formátu cz-ndic_d2-city-parking-table
+
+== 1.0
+
+Nový formát na modelu DATEX II 3.7; nahrazuje část CarParks formátu cz-ndic_d2-parking-occupancy-v1.0 (DATEX II 2.3).
+
+* Zpráva: kořenový element `d2:payload` s typem publikace v `xsi:type`; formát identifikují atributy `profileName` a `profileVersion`.
+* `feedType` identifikuje distribuci (`x-source:…`).
+
+Podrobný popis viz dokumentace formátu (příloha Historie změn dokumentace).

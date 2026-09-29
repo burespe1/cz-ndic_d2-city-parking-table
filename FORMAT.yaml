@@ -1,0 +1,38 @@
+# Metadata formátu – součást vydání specifikace (tag v1.0).
+uri: cz-ndic_d2-city-parking-table
+version: '1.0'
+name:
+  cs: DATEX II Parking Table Publication – Tabulka městských parkovišť
+  en: DATEX II Parking Table Publication – City parking table
+description:
+  cs: 'Statický popis P+R a městských parkovišť: identifikátor, název, poloha, kapacita, provozovatel.'
+  en: 'Static description of P+R and city car parks: identifier, name, location, capacity, operator.'
+publisher:
+  cs: Národní dopravní informační centrum
+  en: National Traffic Information Centre
+model:
+  name: DATEX II
+  version: '3.7'
+  publication: ParkingTablePublication
+  extensions: []
+schema:
+  dir: schema
+  entry: DATEXII_3_D2Payload.xsd
+selection: sel/cz-ndic_d2-city-parking-table.sel
+samples: samples
+ndic:
+  action: create
+  previous: CarParks v cz-ndic_d2-parking-occupancy-v1.0 (DATEX II 2.3)
+  source: správci parkovišť; NDIC udržuje tabulku
+  distributions:
+  - x-source:cz-ndic_d2-city-parking-table-pull-v1 (pull, snímek)
+  legislation:
+  - MMTIS
+  - RTTI
+  profiles: []
+  profileName: cz-ndic_d2-city-parking-table
+  profileVersion: '1.0'
+maintainer:
+  name: Petr Bureš
+  company: TamTam Research s.r.o.
+  url: https://www.tamtamresearch.com

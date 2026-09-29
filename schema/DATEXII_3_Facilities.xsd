@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:fac="http://datex2.eu/schema/3/facilities" version="3.7" targetNamespace="http://datex2.eu/schema/3/facilities" xmlns:com="http://datex2.eu/schema/3/common" xmlns:loc="http://datex2.eu/schema/3/locationReferencing" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://datex2.eu/schema/3/locationReferencing" schemaLocation="DATEXII_3_LocationReferencing.xsd" />
+  <xs:import namespace="http://datex2.eu/schema/3/common" schemaLocation="DATEXII_3_Common.xsd" />
+  <xs:complexType name="ContactInformation">
+    <xs:annotation>
+      <xs:documentation>Contact information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="telephoneNumber" type="com:String" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Telephone number, which can be a general number or the number of a specific contact person.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="eMail" type="com:String" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>E-Mail address, which can be a general mail address or the mail address of a specific contact person.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="_contactInformationExtension" type="com:_ExtensionType" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Facility" abstract="true">
+    <xs:annotation>
+      <xs:documentation>Provides information about a facility, which may represent any kind of site, building, or structure, and may be a composite facility that includes supplemental facilities.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="fac:FacilityObject">
+        <xs:sequence>
+          <xs:element name="_facilityExtension" type="com:_ExtensionType" minOccurs="0" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FacilityObject" abstract="true">
+    <xs:annotation>
+      <xs:documentation>Provides information about a facility object, which may represent any kind of site, building, or structure, including those which supplement a main facility.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" type="com:MultilingualString" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>The name of this facility.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="externalIdentifier" type="com:String" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>An external identifier for this facility.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="lastUpdated" type="com:DateTime" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Information on the time when the information has been updated the last time</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="operatingHours" type="fac:OperatingHours" minOccurs="0" />
+      <xs:element name="locationReference" type="loc:LocationReference" minOccurs="0" />
+      <xs:element name="operator" type="fac:Organisation" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The operator of this facility.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="_facilityObjectExtension" type="com:_ExtensionType" minOccurs="0" />
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required" />
+    <xs:attribute name="version" type="xs:string" use="required" />
+  </xs:complexType>
+  <xs:complexType name="OpenAllHours">
+    <xs:annotation>
+      <xs:documentation>Open or available all the time (24/7)</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="fac:OperatingHours">
+        <xs:sequence>
+          <xs:element name="_openAllHoursExtension" type="com:_ExtensionType" minOccurs="0" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="OperatingHours" abstract="true">
+    <xs:annotation>
+      <xs:documentation>Operating hours, either by reference or by specification.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="_operatingHoursExtension" type="com:_ExtensionType" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Organisation" abstract="true">
+    <xs:annotation>
+      <xs:documentation>Information about an organisation including its units and contact information.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="_organisationExtension" type="com:_ExtensionType" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrganisationSpecification">
+    <xs:annotation>
+      <xs:documentation>Specification of an organisation. It must contain at least one unit.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="fac:Organisation">
+        <xs:sequence>
+          <xs:element name="name" type="com:MultilingualString" minOccurs="1" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>Name of the organisation.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="organisationUnit" type="fac:OrganisationUnit" maxOccurs="unbounded" />
+          <xs:element name="_organisationSpecificationExtension" type="com:_ExtensionType" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string" use="required" />
+        <xs:attribute name="version" type="xs:string" use="required" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="OrganisationUnit">
+    <xs:annotation>
+      <xs:documentation>A unit within the organisation, which has got seperate location, operating hours, address and/or contacts.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="contactInformation" type="fac:ContactInformation" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="_organisationUnitExtension" type="com:_ExtensionType" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UnknownOperatingHours">
+    <xs:annotation>
+      <xs:documentation>The operating hours are not known.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="fac:OperatingHours">
+        <xs:sequence>
+          <xs:element name="_unknownOperatingHoursExtension" type="com:_ExtensionType" minOccurs="0" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
