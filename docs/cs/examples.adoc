@@ -5,8 +5,7 @@ schématu DATEX II 3.7 a odpovídají výběru profilu (`.sel`).
 
 === pr-table.xml – tabulka parkovišť P+R
 
-Tabulka `CzechParkAndRideTable` verze 1 s jedním parkovištěm P+R (`PR-2`, P+R Černý Most) převedená ze
-vzorku verze 2.
+Tabulka `CzechParkAndRideTable` verze 1 s jedním parkovištěm P+R (`PR-2`, P+R Černý Most).
 
 [source,xml]
 ----
@@ -20,5 +19,4 @@ Kořen `d2:payload` typu `prk:ParkingTablePublication` s atributy `profileName` 
 
 Parkoviště::
 Parkoviště `PR-2` na úrovni 0 (`layer`, `type` = `place`) s názvem a způsobem využití P+R
-(`UsageScenario` = `parkAndRide`). Poloha je odkazem na předdefinovanou polohu. Kapacitu, provozovatele,
-provozní dobu a souřadnice doplní správce parkovišť.
+(`UsageScenario` = `parkAndRide`). Poloha je odkazem na předdefinovanou polohu. Kapacitu, provozovatele, provozní dobu ani souřadnice vzorek neuvádí.

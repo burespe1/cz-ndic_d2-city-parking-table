@@ -3,4 +3,14 @@
 // Revize dokumentace (MAJOR.MINOR.REVIZE). Změny formátu viz CHANGELOG.adoc ve specifikaci.
 === 1.0.0
 
-* Nová dokumentace formátu `cz-ndic_d2-city-parking-table` verze 1.0 (DATEX II 3.7); nahrazuje část CarParks formátu cz-ndic_d2-parking-occupancy-v1.0 (DATEX II 2.3).
+* Nová dokumentace formátu `cz-ndic_d2-city-parking-table` verze 1.0 (DATEX II 3.7). Formát je nový;
+  nahrazuje statickou část informací o parkovištích P+R z publikace situace (`CarParks` ve formátu
+  cz-ndic_d2-parking-occupancy-v1.0, DATEX II 2.3).
+* Změny oproti předchozímu formátu:
+** Formát je převeden na model DATEX II 3.7. Obálky `d2LogicalModel` a `exchange`
+   se nepoužívají; kořen je `d2:payload`, formát určují atributy `profileName` a `profileVersion`.
+** Identifikátory parkovišť P+R (např. `PR-2`) se nemění.
+* Původ dat: údaje o parkovištích P+R dosud publikované NDIC jsou omezené; statický popis (kapacitu,
+  provozovatele, provozní dobu, souřadnice) doplní správce parkovišť podle šablony podkladů.
+* Vzorek `pr-table.xml` je převeden ze vzorku předchozího formátu, jehož zdrojová data neobsahovala
+  souřadnice.
