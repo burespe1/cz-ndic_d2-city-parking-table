@@ -1,7 +1,6 @@
 == Příklady zpráv
 
-Vzorky jsou součástí balíčku specifikace `{schema-uri}.zip` (adresář `samples`). Všechny jsou validní vůči
-schématu DATEX II 3.7 a odpovídají výběru profilu (`.sel`).
+Vzorky jsou součástí balíčku specifikace `{schema-uri}.zip` (adresář `samples`).
 
 === pr-table.xml – tabulka parkovišť P+R
 
@@ -14,8 +13,7 @@ include::{samplesdir}/pr-table.xml[tags=**]
 
 Obálka a hlavička::
 Kořen `d2:payload` typu `prk:ParkingTablePublication` s atributy `profileName` a `profileVersion`,
-`publicationTime` a `publicationCreator`. Odkaz na zdroj dat (`feedType`) je
-`x-source:cz-ndic_d2-city-parking-table-pull-v1`.
+`publicationTime` a `publicationCreator`. `feedType` odkazuje na zdroj dat.
 
 Parkoviště::
 Parkoviště `PR-2` na úrovni 0 (`layer`, `type` = `place`) s názvem a způsobem využití P+R

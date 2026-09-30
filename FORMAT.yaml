@@ -23,12 +23,6 @@ samples: samples
 ndic:
   action: create
   previous: CarParks v cz-ndic_d2-parking-occupancy-v1.0 (DATEX II 2.3)
-  source: správci parkovišť; NDIC udržuje tabulku
-  distributions:
-  - x-source:cz-ndic_d2-city-parking-table-pull-v1 (pull, snímek)
-  legislation:
-  - MMTIS
-  - RTTI
   profiles: []
   profileName: cz-ndic_d2-city-parking-table
   profileVersion: '1.0'
