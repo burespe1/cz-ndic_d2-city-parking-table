@@ -12,8 +12,8 @@
     <com:confidentiality>noRestriction</com:confidentiality>
     <com:informationStatus>real</com:informationStatus>
   </prk:headerInformation>
+  <!-- tag::table-head[] -->
   <prk:parkingTable id="CzechParkAndRideTable" version="1">
-    <!-- tag::table-head[] -->
     <prk:name>
       <com:values>
         <com:value lang="cs">Parkoviště P+R</com:value>

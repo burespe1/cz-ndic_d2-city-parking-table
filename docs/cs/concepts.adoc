@@ -62,6 +62,8 @@ parkoviště si ponechává svůj identifikátor i verzi.
 [source,xml]
 ----
 include::{samplesdir}/pr-table.xml[tag=table-head,indent=0]
+  ...
+</prk:parkingTable>
 ----
 
 [[parkoviste]]
