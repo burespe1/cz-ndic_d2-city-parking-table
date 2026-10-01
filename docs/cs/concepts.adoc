@@ -91,7 +91,7 @@ include::{samplesdir}/pr-table.xml[tag=place,indent=0]
 
 Poloha parkoviště se uvádí v elementu `locationReference` parkoviště:
 
-* *souřadnice pro zobrazení* – `coordinatesForDisplay` (`latitude`, `longitude` ve WGS-84), které dodá
+* *souřadnice pro zobrazení* – `coordinatesForDisplay` (`latitude`, `longitude` v ETRS89), které dodá
   správce parkoviště; cílový a doporučený popis polohy,
 * *odkaz na předdefinovanou polohu* – `loc:LocationByReference` s odkazem na polohu ve formátu
   `cz-ndic_d2-pls` (`targetClass` = `loc:PredefinedLocation`); používá se přechodně, dokud správce
