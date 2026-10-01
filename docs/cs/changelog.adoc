@@ -8,7 +8,7 @@
   cz-ndic_d2-parking-occupancy-v1.0, DATEX II 2.3).
 * Změny oproti předchozímu formátu:
 ** Formát je převeden na model DATEX II 3.7. Obálky `d2LogicalModel` a `exchange`
-   se nepoužívají; kořen je `d2:payload`, formát určují atributy `profileName` a `profileVersion`.
+   se nepoužívají; kořen je `d2:payload`, formát určují atributy `@profileName` a `@profileVersion`.
 ** Identifikátory parkovišť P+R (např. `PR-2`) se nemění.
 * Původ dat: údaje o parkovištích P+R dosud publikované NDIC jsou omezené; statický popis (kapacitu,
   provozovatele, provozní dobu, souřadnice) doplní správce parkovišť podle šablony podkladů.

@@ -12,9 +12,9 @@ include::{samplesdir}/pr-table.xml[tags=**]
 ----
 
 Obálka a hlavička::
-Kořen `d2:payload` typu `prk:ParkingTablePublication` s atributy `profileName` a `profileVersion`,
+Kořen `d2:payload` typu `prk:ParkingTablePublication` s atributy `@profileName` a `@profileVersion`,
 `publicationTime` a `publicationCreator`. `feedType` odkazuje na zdroj dat.
 
 Parkoviště::
 Parkoviště `PR-2` na úrovni 0 (`layer`, `type` = `place`) s názvem a způsobem využití P+R
-(`UsageScenario` = `parkAndRide`). Poloha je odkazem na předdefinovanou polohu. Kapacitu, provozovatele, provozní dobu ani souřadnice vzorek neuvádí.
+(`operatingPattern` typu `prk:UsageScenario` s `type` = `parkAndRide`). Poloha je odkazem na předdefinovanou polohu. Kapacitu, provozovatele, provozní dobu ani souřadnice vzorek neuvádí.
