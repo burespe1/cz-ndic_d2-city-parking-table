@@ -6,10 +6,8 @@ languages:
 - cs
 - en
 cs:
-  perex: 'Statický popis P+R a městských parkovišť: identifikátor, název, poloha,
-    kapacita, provozovatel.'
+  perex: 'Tento dokument popisuje datový formát, používaný pro poskytování statického popisu městských parkovišť a parkovišť P+R: identifikátoru, názvu, polohy, kapacity, způsobu využití, provozovatele a provozní doby. Na tabulku parkovišť se odkazují zprávy formátu cz-ndic_d2-city-parking-status s aktuální obsazeností. Formát vychází z publikace ParkingTablePublication modelu DATEX II 3.7 a je lehkou podmnožinou profilu pro parkoviště nákladních vozidel (ITP).'
   keywords: DATEX II, NDIC, ParkingTablePublication
 en:
-  perex: 'Static description of P+R and city car parks: identifier, name, location,
-    capacity, operator.'
+  perex: 'This document describes the data format used to provide the static description of urban car parks and park-and-ride sites: identifier, name, location, capacity, usage, operator and opening times. Messages of the format cz-ndic_d2-city-parking-status with the current occupancy reference this table of car parks. The format is based on the ParkingTablePublication of the DATEX II 3.7 model and is a light subset of the profile for truck parking (ITP).'
   keywords: DATEX II, NDIC, ParkingTablePublication
