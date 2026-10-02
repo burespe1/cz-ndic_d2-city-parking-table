@@ -2,9 +2,10 @@
 
 Vzorky jsou součástí balíčku specifikace `{schema-uri}.zip` (adresář `samples`).
 
-=== pr-table.xml – tabulka parkovišť P+R
+=== pr-table.xml – tabulky parkovišť
 
-Tabulka `CzechParkAndRideTable` verze 1 s jedním parkovištěm P+R (`PR-2`, P+R Černý Most).
+Skutečný stav z dat NDIC (1. 10. 2026): 11 parkovišť v Praze ve dvou tabulkách – `CzechParkAndRideTable`
+(9 parkovišť P+R) a `CzechCityParkingTable` (2 městská parkoviště).
 
 [source,xml]
 ----
@@ -16,5 +17,14 @@ Kořen `d2:payload` typu `prk:ParkingTablePublication` s atributy `@profileName`
 `publicationTime` a `publicationCreator`. `feedType` odkazuje na zdroj dat.
 
 Parkoviště::
-Parkoviště `PR-2` na úrovni 0 (`layer`, `type` = `place`) s názvem a způsobem využití P+R
-(`operatingPattern` typu `prk:UsageScenario` s `type` = `parkAndRide`). Poloha je odkazem na předdefinovanou polohu. Kapacitu, provozovatele, provozní dobu ani souřadnice vzorek neuvádí.
+* Každé parkoviště má identifikátor GUID, název a úroveň 0 (`layer`, `type` = `place`).
+* Parkoviště P+R mají způsob využití P+R (`operatingPattern` typu `prk:UsageScenario` s `type` =
+  `parkAndRide`).
+* Kapacitu, provozovatele ani provozní dobu data zatím neuvádějí.
+
+Poloha::
+* Parkoviště je bod (`coordinatesForDisplay`) na úseku komunikace parkoviště. Úsek popisuje OpenLR,
+  síť Global Network a průběh polohy `gmlLineString`.
+* U většiny parkovišť stačí jeden úsek sítě Global Network. Bod parkoviště P+R Opatov leží na hranici
+  dvou úseků, poloha proto uvádí oba.
+* Parkoviště Muzeum má navíc polohu ALERT-C.

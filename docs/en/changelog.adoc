@@ -1,5 +1,24 @@
 == Documentation change history
 
+// Documentation revision (MAJOR.MINOR.REVISION). Format changes see CHANGELOG.adoc in the specification.
 === 1.0.0
 
-* first release of the documentation
+* New documentation of the `cz-ndic_d2-city-parking-table` format version 1.0 (DATEX II 3.7). The format is new;
+  it replaces the static part of the information on P+R car parks from the situation publication
+  (`CarParks` in the cz-ndic_d2-parking-occupancy-v1.0 format, DATEX II 2.3).
+* Changes compared to the previous format:
+** The format is converted to the DATEX II 3.7 model. The `d2LogicalModel` and `exchange` envelopes
+   are not used; the root is `d2:payload`, the format is identified by the `@profileName` and `@profileVersion` attributes.
+** The location of the car park is directly in the table (`loc:SingleRoadLinearLocation` – OpenLR, Global Network, ALERT-C,
+   location path and coordinates for display); predefined locations are not referenced. The car park is described
+   by a point and the road section on which the point lies.
+** The identifier of the car park is the GUID under which NDIC publishes the car park; previous identifiers
+   (e.g. `PR-2`) are not used.
+** The publication contains several tables by type of car park: `CzechParkAndRideTable` (P+R)
+   and `CzechCityParkingTable` (other city car parks).
+** The profile is narrowed for city car parks: only the level `place`, without the motorway and truck parking
+   scenarios (`truckParking`, `motorwayParking`, `nearbyMotorwayParking`, `restArea`, `serviceArea`), without
+   OpenLR in the opposite direction and without unknown opening times.
+* Origin of the data: the data on P+R car parks published by NDIC so far are limited; the static description (capacity,
+  operator, opening times, coordinates) will be added by the car park operators according to the data template.
+* The sample `pr-table.xml` is converted from NDIC production data (1 Oct 2026).

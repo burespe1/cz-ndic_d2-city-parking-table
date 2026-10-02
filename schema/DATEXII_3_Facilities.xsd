@@ -121,16 +121,4 @@
       <xs:element name="_organisationUnitExtension" type="com:_ExtensionType" minOccurs="0" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="UnknownOperatingHours">
-    <xs:annotation>
-      <xs:documentation>The operating hours are not known.</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="fac:OperatingHours">
-        <xs:sequence>
-          <xs:element name="_unknownOperatingHoursExtension" type="com:_ExtensionType" minOccurs="0" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
 </xs:schema>

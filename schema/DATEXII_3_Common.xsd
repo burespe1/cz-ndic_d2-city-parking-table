@@ -19,6 +19,15 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
+  <xs:simpleType name="AngleInDegrees">
+    <xs:annotation>
+      <xs:documentation>An integer number representing an angle in whole degrees between 0 and 359.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NonNegativeInteger">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="359" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="ConfidentialityValueEnum">
     <xs:annotation>
       <xs:documentation>Values of confidentiality.</xs:documentation>
@@ -143,6 +152,18 @@
     </xs:annotation>
     <xs:restriction base="xs:language" />
   </xs:simpleType>
+  <xs:simpleType name="LongString">
+    <xs:annotation>
+      <xs:documentation>A character string with no specified length limit, whose value space is the set of finite-length sequences of characters. Every character has a corresponding Universal Character Set code point (as defined in ISO/IEC 10646), which is an integer.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="MetresAsNonNegativeInteger">
+    <xs:annotation>
+      <xs:documentation>A measure of distance defined in metres in a non negative integer format.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NonNegativeInteger" />
+  </xs:simpleType>
   <xs:complexType name="MultilingualString">
     <xs:sequence>
       <xs:element name="values">
@@ -201,6 +222,12 @@
     <xs:attribute name="profileName" type="xs:string" use="optional" />
     <xs:attribute name="profileVersion" type="xs:string" use="optional" />
   </xs:complexType>
+  <xs:simpleType name="Percentage">
+    <xs:annotation>
+      <xs:documentation>A ratio expressed as an amount per hundred, such that for example the value 100 represents the case where a quantity is equal to the reference value it is compared with, while the value 50 represents a ratio of one half.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:Float" />
+  </xs:simpleType>
   <xs:complexType name="Reference">
     <xs:attribute name="id" type="xs:string" use="required" />
   </xs:complexType>

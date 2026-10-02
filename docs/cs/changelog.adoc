@@ -9,8 +9,16 @@
 * Změny oproti předchozímu formátu:
 ** Formát je převeden na model DATEX II 3.7. Obálky `d2LogicalModel` a `exchange`
    se nepoužívají; kořen je `d2:payload`, formát určují atributy `@profileName` a `@profileVersion`.
-** Identifikátory parkovišť P+R (např. `PR-2`) se nemění.
+** Poloha parkoviště je přímo v tabulce (`loc:SingleRoadLinearLocation` – OpenLR, Global Network, ALERT-C,
+   průběh polohy a souřadnice pro zobrazení); na předdefinované polohy se neodkazuje. Parkoviště se popisuje
+   bodem a úsekem komunikace, na kterém bod leží.
+** Identifikátorem parkoviště je GUID, pod kterým NDIC parkoviště publikuje; dřívější identifikátory
+   (např. `PR-2`) se nepoužívají.
+** Publikace obsahuje více tabulek podle typu parkoviště: `CzechParkAndRideTable` (P+R)
+   a `CzechCityParkingTable` (ostatní městská parkoviště).
+** Profil je zúžen pro městská parkoviště: jen úroveň `place`, bez scénářů dálničního a nákladního
+   parkování (`truckParking`, `motorwayParking`, `nearbyMotorwayParking`, `restArea`, `serviceArea`), bez
+   OpenLR v opačném směru a bez neznámé provozní doby.
 * Původ dat: údaje o parkovištích P+R dosud publikované NDIC jsou omezené; statický popis (kapacitu,
   provozovatele, provozní dobu, souřadnice) doplní správce parkovišť podle šablony podkladů.
-* Vzorek `pr-table.xml` je převeden ze vzorku předchozího formátu, jehož zdrojová data neobsahovala
-  souřadnice.
+* Vzorek `pr-table.xml` je převeden z produkčních dat NDIC (1. 10. 2026).

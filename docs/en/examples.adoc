@@ -1,4 +1,30 @@
-== Examples
+== Examples of messages
 
-// Sample excerpts via tags – in the sample: <!-- tag::location[] --> … <!-- end::location[] -->
-Samples are part of the specification package `{schema-uri}.zip`.
+The samples are part of the specification package `{schema-uri}.zip` (folder `samples`).
+
+=== pr-table.xml – car park tables
+
+A real state from NDIC data (1 Oct 2026): 11 car parks in Prague in two tables – `CzechParkAndRideTable`
+(9 P+R car parks) and `CzechCityParkingTable` (2 city car parks).
+
+[source,xml]
+----
+include::{samplesdir}/pr-table.xml[tags=**]
+----
+
+Envelope and header::
+Root `d2:payload` of the type `prk:ParkingTablePublication` with the attributes `@profileName` and `@profileVersion`,
+`publicationTime` and `publicationCreator`. `feedType` refers to the data source.
+
+Car parks::
+* Each car park has a GUID identifier, a name and level 0 (`layer`, `type` = `place`).
+* P+R car parks have the P+R usage (`operatingPattern` of the type `prk:UsageScenario` with `type` =
+  `parkAndRide`).
+* The data do not yet give the capacity, the operator or the opening times.
+
+Location::
+* The car park is a point (`coordinatesForDisplay`) on a section of the car park road. The section is described by OpenLR,
+  the Global Network and the location path `gmlLineString`.
+* For most car parks one Global Network section is enough. The point of the P+R Opatov car park lies on the boundary
+  of two sections, so the location gives both.
+* The Muzeum car park also has an ALERT-C location.

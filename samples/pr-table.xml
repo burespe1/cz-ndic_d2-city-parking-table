@@ -2,10 +2,10 @@
 <d2:payload xmlns:d2="http://datex2.eu/schema/3/d2Payload" xmlns:com="http://datex2.eu/schema/3/common" xmlns:loc="http://datex2.eu/schema/3/locationReferencing" xmlns:prk="http://datex2.eu/schema/3/parking" xmlns:fac="http://datex2.eu/schema/3/facilities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="prk:ParkingTablePublication" lang="cs" modelBaseVersion="3" profileName="cz-ndic_d2-city-parking-table" profileVersion="1.0">
   <!-- tag::header[] -->
   <com:feedType>x-source:cz-ndic_d2-city-parking-table-pull-v1</com:feedType>
-  <com:publicationTime>2016-05-18T18:49:21+02:00</com:publicationTime>
+  <com:publicationTime>2026-10-01T16:30:41+02:00</com:publicationTime>
   <com:publicationCreator>
     <com:country>cz</com:country>
-    <com:nationalIdentifier>DRU</com:nationalIdentifier>
+    <com:nationalIdentifier>NDIC</com:nationalIdentifier>
   </com:publicationCreator>
   <!-- end::header[] -->
   <prk:headerInformation>
@@ -19,18 +19,74 @@
         <com:value lang="cs">Parkoviště P+R</com:value>
       </com:values>
     </prk:name>
-    <prk:versionTime>2016-05-18T18:49:21+02:00</prk:versionTime>
-    <!-- end::table-head[] -->
-    <!-- tag::place[] -->
-    <prk:hierarchyElementGeneral xsi:type="prk:Place" id="PR-2" version="1">
+    <prk:versionTime>2026-10-01T16:30:41+02:00</prk:versionTime>
+  <!-- end::table-head[] -->
+    <prk:hierarchyElementGeneral xsi:type="prk:Place" id="cefe4b6b-43de-45ff-9d7d-38c99425be2c" version="1">
       <fac:name>
         <com:values>
-          <com:value lang="cs">P+R Černý Most</com:value>
+          <com:value lang="cs">P+R Kotlářka</com:value>
         </com:values>
       </fac:name>
       <!-- tag::place-loc[] -->
-      <fac:locationReference xsi:type="loc:LocationByReference">
-        <loc:predefinedLocationReference id="98D69F80-7E63-422B-A9B7-EEACE24C055C" version="1" targetClass="loc:PredefinedLocation"/>
+      <fac:locationReference xsi:type="loc:SingleRoadLinearLocation">
+        <loc:coordinatesForDisplay>
+          <loc:latitude>50.06879</loc:latitude>
+          <loc:longitude>14.35880</loc:longitude>
+        </loc:coordinatesForDisplay>
+        <!-- OpenLR -->
+        <loc:openlrLinear>
+          <loc:firstDirection>
+            <loc:openlrLocationReferencePoint>
+              <loc:openlrCoordinates>
+                <loc:latitude>50.069057011972667</loc:latitude>
+                <loc:longitude>14.35953883297636</loc:longitude>
+              </loc:openlrCoordinates>
+              <loc:openlrLineAttributes>
+                <loc:openlrFunctionalRoadClass>frc7</loc:openlrFunctionalRoadClass>
+                <loc:openlrFormOfWay>singleCarriageway</loc:openlrFormOfWay>
+                <loc:openlrBearing>238</loc:openlrBearing>
+              </loc:openlrLineAttributes>
+              <loc:openlrPathAttributes>
+                <loc:openlrLowestFrcToNextLRPoint>frc7</loc:openlrLowestFrcToNextLRPoint>
+                <loc:openlrDistanceToNextLRPoint>147</loc:openlrDistanceToNextLRPoint>
+              </loc:openlrPathAttributes>
+            </loc:openlrLocationReferencePoint>
+            <loc:openlrLastLocationReferencePoint>
+              <loc:openlrCoordinates>
+                <loc:latitude>50.0684473997095</loc:latitude>
+                <loc:longitude>14.35770634663954</loc:longitude>
+              </loc:openlrCoordinates>
+              <loc:openlrLineAttributes>
+                <loc:openlrFunctionalRoadClass>frc7</loc:openlrFunctionalRoadClass>
+                <loc:openlrFormOfWay>slipRoad</loc:openlrFormOfWay>
+                <loc:openlrBearing>64</loc:openlrBearing>
+              </loc:openlrLineAttributes>
+            </loc:openlrLastLocationReferencePoint>
+            <loc:openlrOffsets>
+              <loc:openlrPositiveOffset>0</loc:openlrPositiveOffset>
+              <loc:openlrNegativeOffset>37</loc:openlrNegativeOffset>
+            </loc:openlrOffsets>
+          </loc:firstDirection>
+        </loc:openlrLinear>
+        <!-- gmlLineString -->
+        <loc:gmlLineString srsName="urn:ogc:def:crs:EPSG::4258" srsDimension="2">
+          <loc:posList>50.06906 14.35954 50.06861 14.35816</loc:posList>
+        </loc:gmlLineString>
+        <!-- GN -->
+        <loc:linearWithinLinearElement>
+          <loc:directionRelativeOnLinearSection>opposite</loc:directionRelativeOnLinearSection>
+          <loc:linearElement xsi:type="loc:LinearElementByCode">
+            <loc:linearElementReferenceModel>CZ-RSD-GlobalNetwork</loc:linearElementReferenceModel>
+            <loc:linearElementReferenceModelVersion>26.06</loc:linearElementReferenceModelVersion>
+            <loc:linearElementIdentifier>281036</loc:linearElementIdentifier>
+          </loc:linearElement>
+          <loc:fromPoint xsi:type="loc:PercentageDistanceAlongLinearElement">
+            <loc:percentageDistanceAlong>100</loc:percentageDistanceAlong>
+          </loc:fromPoint>
+          <loc:toPoint xsi:type="loc:PercentageDistanceAlongLinearElement">
+            <loc:percentageDistanceAlong>0</loc:percentageDistanceAlong>
+          </loc:toPoint>
+        </loc:linearWithinLinearElement>
       </fac:locationReference>
       <!-- end::place-loc[] -->
       <prk:layer>0</prk:layer>
@@ -41,6 +97,781 @@
         </prk:operatingPattern>
       </prk:commonComponents>
     </prk:hierarchyElementGeneral>
+    <prk:hierarchyElementGeneral xsi:type="prk:Place" id="0ec84a2c-9447-4e25-837e-4c301f4f1ea6" version="1">
+      <fac:name>
+        <com:values>
+          <com:value lang="cs">P+R Opatov</com:value>
+        </com:values>
+      </fac:name>
+      <fac:locationReference xsi:type="loc:SingleRoadLinearLocation">
+        <loc:coordinatesForDisplay>
+          <loc:latitude>50.02615</loc:latitude>
+          <loc:longitude>14.50872</loc:longitude>
+        </loc:coordinatesForDisplay>
+        <!-- OpenLR -->
+        <loc:openlrLinear>
+          <loc:firstDirection>
+            <loc:openlrLocationReferencePoint>
+              <loc:openlrCoordinates>
+                <loc:latitude>50.026144925630582</loc:latitude>
+                <loc:longitude>14.508511339321478</loc:longitude>
+              </loc:openlrCoordinates>
+              <loc:openlrLineAttributes>
+                <loc:openlrFunctionalRoadClass>frc7</loc:openlrFunctionalRoadClass>
+                <loc:openlrFormOfWay>other</loc:openlrFormOfWay>
+                <loc:openlrBearing>87</loc:openlrBearing>
+              </loc:openlrLineAttributes>
+              <loc:openlrPathAttributes>
+                <loc:openlrLowestFrcToNextLRPoint>frc7</loc:openlrLowestFrcToNextLRPoint>
+                <loc:openlrDistanceToNextLRPoint>27</loc:openlrDistanceToNextLRPoint>
+              </loc:openlrPathAttributes>
+            </loc:openlrLocationReferencePoint>
+            <loc:openlrLastLocationReferencePoint>
+              <loc:openlrCoordinates>
+                <loc:latitude>50.026167923697024</loc:latitude>
+                <loc:longitude>14.5089046232718</loc:longitude>
+              </loc:openlrCoordinates>
+              <loc:openlrLineAttributes>
+                <loc:openlrFunctionalRoadClass>frc7</loc:openlrFunctionalRoadClass>
+                <loc:openlrFormOfWay>other</loc:openlrFormOfWay>
+                <loc:openlrBearing>262</loc:openlrBearing>
+              </loc:openlrLineAttributes>
+            </loc:openlrLastLocationReferencePoint>
+            <loc:openlrOffsets>
+              <loc:openlrPositiveOffset>0</loc:openlrPositiveOffset>
+              <loc:openlrNegativeOffset>0</loc:openlrNegativeOffset>
+            </loc:openlrOffsets>
+          </loc:firstDirection>
+        </loc:openlrLinear>
+        <!-- gmlLineString -->
+        <loc:gmlLineString srsName="urn:ogc:def:crs:EPSG::4258" srsDimension="2">
+          <loc:posList>50.02615 14.50853 50.02617 14.50891</loc:posList>
+        </loc:gmlLineString>
+        <!-- GN -->
+        <loc:linearWithinLinearElement>
+          <loc:directionRelativeOnLinearSection>aligned</loc:directionRelativeOnLinearSection>
+          <loc:linearElement xsi:type="loc:LinearElementByCode">
+            <loc:linearElementReferenceModel>CZ-RSD-GlobalNetwork</loc:linearElementReferenceModel>
+            <loc:linearElementReferenceModelVersion>26.06</loc:linearElementReferenceModelVersion>
+            <loc:linearElementIdentifier>1598397</loc:linearElementIdentifier>
+          </loc:linearElement>
+          <loc:fromPoint xsi:type="loc:PercentageDistanceAlongLinearElement">
+            <loc:percentageDistanceAlong>0</loc:percentageDistanceAlong>
+          </loc:fromPoint>
+          <loc:toPoint xsi:type="loc:PercentageDistanceAlongLinearElement">
+            <loc:percentageDistanceAlong>100</loc:percentageDistanceAlong>
+          </loc:toPoint>
+        </loc:linearWithinLinearElement>
+        <loc:linearWithinLinearElement>
+          <loc:directionRelativeOnLinearSection>aligned</loc:directionRelativeOnLinearSection>
+          <loc:linearElement xsi:type="loc:LinearElementByCode">
+            <loc:linearElementReferenceModel>CZ-RSD-GlobalNetwork</loc:linearElementReferenceModel>
+            <loc:linearElementReferenceModelVersion>26.06</loc:linearElementReferenceModelVersion>
+            <loc:linearElementIdentifier>1684310</loc:linearElementIdentifier>
+          </loc:linearElement>
+          <loc:fromPoint xsi:type="loc:PercentageDistanceAlongLinearElement">
+            <loc:percentageDistanceAlong>0</loc:percentageDistanceAlong>
+          </loc:fromPoint>
+          <loc:toPoint xsi:type="loc:PercentageDistanceAlongLinearElement">
+            <loc:percentageDistanceAlong>100</loc:percentageDistanceAlong>
+          </loc:toPoint>
+        </loc:linearWithinLinearElement>
+      </fac:locationReference>
+      <prk:layer>0</prk:layer>
+      <prk:type>place</prk:type>
+      <prk:commonComponents>
+        <prk:operatingPattern xsi:type="prk:UsageScenario" operatingPatternIndex="0">
+          <prk:type>parkAndRide</prk:type>
+        </prk:operatingPattern>
+      </prk:commonComponents>
+    </prk:hierarchyElementGeneral>
+    <prk:hierarchyElementGeneral xsi:type="prk:Place" id="cf4f6614-a0b5-411d-ac12-749c3116c18a" version="1">
+      <fac:name>
+        <com:values>
+          <com:value lang="cs">P+R Černý Most II</com:value>
+        </com:values>
+      </fac:name>
+      <fac:locationReference xsi:type="loc:SingleRoadLinearLocation">
+        <loc:coordinatesForDisplay>
+          <loc:latitude>50.11051</loc:latitude>
+          <loc:longitude>14.58266</loc:longitude>
+        </loc:coordinatesForDisplay>
+        <!-- OpenLR -->
+        <loc:openlrLinear>
+          <loc:firstDirection>
+            <loc:openlrLocationReferencePoint>
+              <loc:openlrCoordinates>
+                <loc:latitude>50.110642608172604</loc:latitude>
+                <loc:longitude>14.582615506018625</loc:longitude>
+              </loc:openlrCoordinates>
+              <loc:openlrLineAttributes>
+                <loc:openlrFunctionalRoadClass>frc7</loc:openlrFunctionalRoadClass>
+                <loc:openlrFormOfWay>other</loc:openlrFormOfWay>
+                <loc:openlrBearing>167</loc:openlrBearing>
+              </loc:openlrLineAttributes>
+              <loc:openlrPathAttributes>
+                <loc:openlrLowestFrcToNextLRPoint>frc7</loc:openlrLowestFrcToNextLRPoint>
+                <loc:openlrDistanceToNextLRPoint>30</loc:openlrDistanceToNextLRPoint>
+              </loc:openlrPathAttributes>
+            </loc:openlrLocationReferencePoint>
+            <loc:openlrLastLocationReferencePoint>
+              <loc:openlrCoordinates>
+                <loc:latitude>50.110378293462929</loc:latitude>
+                <loc:longitude>14.582709067308627</loc:longitude>
+              </loc:openlrCoordinates>
+              <loc:openlrLineAttributes>
+                <loc:openlrFunctionalRoadClass>frc7</loc:openlrFunctionalRoadClass>
+                <loc:openlrFormOfWay>other</loc:openlrFormOfWay>
+                <loc:openlrBearing>347</loc:openlrBearing>
+              </loc:openlrLineAttributes>
+            </loc:openlrLastLocationReferencePoint>
+            <loc:openlrOffsets>
+              <loc:openlrPositiveOffset>0</loc:openlrPositiveOffset>
+              <loc:openlrNegativeOffset>0</loc:openlrNegativeOffset>
+            </loc:openlrOffsets>
+          </loc:firstDirection>
+        </loc:openlrLinear>
+        <!-- gmlLineString -->
+        <loc:gmlLineString srsName="urn:ogc:def:crs:EPSG::4258" srsDimension="2">
+          <loc:posList>50.11064 14.58262 50.11038 14.58271</loc:posList>
+        </loc:gmlLineString>
+        <!-- GN -->
+        <loc:linearWithinLinearElement>
+          <loc:directionRelativeOnLinearSection>aligned</loc:directionRelativeOnLinearSection>
+          <loc:linearElement xsi:type="loc:LinearElementByCode">
+            <loc:linearElementReferenceModel>CZ-RSD-GlobalNetwork</loc:linearElementReferenceModel>
+            <loc:linearElementReferenceModelVersion>26.06</loc:linearElementReferenceModelVersion>
+            <loc:linearElementIdentifier>1719850</loc:linearElementIdentifier>
+          </loc:linearElement>
+          <loc:fromPoint xsi:type="loc:PercentageDistanceAlongLinearElement">
+            <loc:percentageDistanceAlong>0</loc:percentageDistanceAlong>
+          </loc:fromPoint>
+          <loc:toPoint xsi:type="loc:PercentageDistanceAlongLinearElement">
+            <loc:percentageDistanceAlong>100</loc:percentageDistanceAlong>
+          </loc:toPoint>
+        </loc:linearWithinLinearElement>
+      </fac:locationReference>
+      <prk:layer>0</prk:layer>
+      <prk:type>place</prk:type>
+      <prk:commonComponents>
+        <prk:operatingPattern xsi:type="prk:UsageScenario" operatingPatternIndex="0">
+          <prk:type>parkAndRide</prk:type>
+        </prk:operatingPattern>
+      </prk:commonComponents>
+    </prk:hierarchyElementGeneral>
+    <prk:hierarchyElementGeneral xsi:type="prk:Place" id="ba41f7c3-a27b-4683-839b-c59d512d3163" version="1">
+      <fac:name>
+        <com:values>
+          <com:value lang="cs">P+R Roztyly</com:value>
+        </com:values>
+      </fac:name>
+      <fac:locationReference xsi:type="loc:SingleRoadLinearLocation">
+        <loc:coordinatesForDisplay>
+          <loc:latitude>50.03855</loc:latitude>
+          <loc:longitude>14.47750</loc:longitude>
+        </loc:coordinatesForDisplay>
+        <!-- OpenLR -->
+        <loc:openlrLinear>
+          <loc:firstDirection>
+            <loc:openlrLocationReferencePoint>
+              <loc:openlrCoordinates>
+                <loc:latitude>50.038442358009995</loc:latitude>
+                <loc:longitude>14.478022139368639</loc:longitude>
+              </loc:openlrCoordinates>
+              <loc:openlrLineAttributes>
+                <loc:openlrFunctionalRoadClass>frc7</loc:openlrFunctionalRoadClass>
+                <loc:openlrFormOfWay>singleCarriageway</loc:openlrFormOfWay>
+                <loc:openlrBearing>293</loc:openlrBearing>
+              </loc:openlrLineAttributes>
+              <loc:openlrPathAttributes>
+                <loc:openlrLowestFrcToNextLRPoint>frc7</loc:openlrLowestFrcToNextLRPoint>
+                <loc:openlrDistanceToNextLRPoint>74</loc:openlrDistanceToNextLRPoint>
+              </loc:openlrPathAttributes>
+            </loc:openlrLocationReferencePoint>
+            <loc:openlrLastLocationReferencePoint>
+              <loc:openlrCoordinates>
+                <loc:latitude>50.038625929133794</loc:latitude>
+                <loc:longitude>14.477035745131992</loc:longitude>
+              </loc:openlrCoordinates>
+              <loc:openlrLineAttributes>
+                <loc:openlrFunctionalRoadClass>frc7</loc:openlrFunctionalRoadClass>
+                <loc:openlrFormOfWay>singleCarriageway</loc:openlrFormOfWay>
+                <loc:openlrBearing>100</loc:openlrBearing>
+              </loc:openlrLineAttributes>
+            </loc:openlrLastLocationReferencePoint>
+            <loc:openlrOffsets>
+              <loc:openlrPositiveOffset>0</loc:openlrPositiveOffset>
+              <loc:openlrNegativeOffset>0</loc:openlrNegativeOffset>
+            </loc:openlrOffsets>
+          </loc:firstDirection>
+        </loc:openlrLinear>
+        <!-- gmlLineString -->
+        <loc:gmlLineString srsName="urn:ogc:def:crs:EPSG::4258" srsDimension="2">
+          <loc:posList>50.03845 14.47796 50.03863 14.47704</loc:posList>
+        </loc:gmlLineString>
+        <!-- GN -->
+        <loc:linearWithinLinearElement>
+          <loc:directionRelativeOnLinearSection>aligned</loc:directionRelativeOnLinearSection>
+          <loc:linearElement xsi:type="loc:LinearElementByCode">
+            <loc:linearElementReferenceModel>CZ-RSD-GlobalNetwork</loc:linearElementReferenceModel>
+            <loc:linearElementReferenceModelVersion>26.06</loc:linearElementReferenceModelVersion>
+            <loc:linearElementIdentifier>822338</loc:linearElementIdentifier>
+          </loc:linearElement>
+          <loc:fromPoint xsi:type="loc:PercentageDistanceAlongLinearElement">
+            <loc:percentageDistanceAlong>0</loc:percentageDistanceAlong>
+          </loc:fromPoint>
+          <loc:toPoint xsi:type="loc:PercentageDistanceAlongLinearElement">
+            <loc:percentageDistanceAlong>100</loc:percentageDistanceAlong>
+          </loc:toPoint>
+        </loc:linearWithinLinearElement>
+      </fac:locationReference>
+      <prk:layer>0</prk:layer>
+      <prk:type>place</prk:type>
+      <prk:commonComponents>
+        <prk:operatingPattern xsi:type="prk:UsageScenario" operatingPatternIndex="0">
+          <prk:type>parkAndRide</prk:type>
+        </prk:operatingPattern>
+      </prk:commonComponents>
+    </prk:hierarchyElementGeneral>
+    <prk:hierarchyElementGeneral xsi:type="prk:Place" id="f27f2b54-5d11-483e-83fe-8fa4627db3c5" version="1">
+      <fac:name>
+        <com:values>
+          <com:value lang="cs">P+R Rajská zahrada</com:value>
+        </com:values>
+      </fac:name>
+      <fac:locationReference xsi:type="loc:SingleRoadLinearLocation">
+        <loc:coordinatesForDisplay>
+          <loc:latitude>50.10680</loc:latitude>
+          <loc:longitude>14.56225</loc:longitude>
+        </loc:coordinatesForDisplay>
+        <!-- OpenLR -->
+        <loc:openlrLinear>
+          <loc:firstDirection>
+            <loc:openlrLocationReferencePoint>
+              <loc:openlrCoordinates>
+                <loc:latitude>50.106705368658275</loc:latitude>
+                <loc:longitude>14.562282263696112</loc:longitude>
+              </loc:openlrCoordinates>
+              <loc:openlrLineAttributes>
+                <loc:openlrFunctionalRoadClass>frc7</loc:openlrFunctionalRoadClass>
+                <loc:openlrFormOfWay>other</loc:openlrFormOfWay>
+                <loc:openlrBearing>345</loc:openlrBearing>
+              </loc:openlrLineAttributes>
+              <loc:openlrPathAttributes>
+                <loc:openlrLowestFrcToNextLRPoint>frc7</loc:openlrLowestFrcToNextLRPoint>
+                <loc:openlrDistanceToNextLRPoint>20</loc:openlrDistanceToNextLRPoint>
+              </loc:openlrPathAttributes>
+            </loc:openlrLocationReferencePoint>
+            <loc:openlrLastLocationReferencePoint>
+              <loc:openlrCoordinates>
+                <loc:latitude>50.106890127672067</loc:latitude>
+                <loc:longitude>14.562267830999346</loc:longitude>
+              </loc:openlrCoordinates>
+              <loc:openlrLineAttributes>
+                <loc:openlrFunctionalRoadClass>frc7</loc:openlrFunctionalRoadClass>
+                <loc:openlrFormOfWay>other</loc:openlrFormOfWay>
+                <loc:openlrBearing>183</loc:openlrBearing>
+              </loc:openlrLineAttributes>
+            </loc:openlrLastLocationReferencePoint>
+            <loc:openlrOffsets>
+              <loc:openlrPositiveOffset>6</loc:openlrPositiveOffset>
+              <loc:openlrNegativeOffset>0</loc:openlrNegativeOffset>
+            </loc:openlrOffsets>
+          </loc:firstDirection>
+        </loc:openlrLinear>
+        <!-- gmlLineString -->
+        <loc:gmlLineString srsName="urn:ogc:def:crs:EPSG::4258" srsDimension="2">
+          <loc:posList>50.10676 14.56226 50.10689 14.56227</loc:posList>
+        </loc:gmlLineString>
+        <!-- GN -->
+        <loc:linearWithinLinearElement>
+          <loc:directionRelativeOnLinearSection>aligned</loc:directionRelativeOnLinearSection>
+          <loc:linearElement xsi:type="loc:LinearElementByCode">
+            <loc:linearElementReferenceModel>CZ-RSD-GlobalNetwork</loc:linearElementReferenceModel>
+            <loc:linearElementReferenceModelVersion>26.06</loc:linearElementReferenceModelVersion>
+            <loc:linearElementIdentifier>1719885</loc:linearElementIdentifier>
+          </loc:linearElement>
+          <loc:fromPoint xsi:type="loc:PercentageDistanceAlongLinearElement">
+            <loc:percentageDistanceAlong>0</loc:percentageDistanceAlong>
+          </loc:fromPoint>
+          <loc:toPoint xsi:type="loc:PercentageDistanceAlongLinearElement">
+            <loc:percentageDistanceAlong>100</loc:percentageDistanceAlong>
+          </loc:toPoint>
+        </loc:linearWithinLinearElement>
+      </fac:locationReference>
+      <prk:layer>0</prk:layer>
+      <prk:type>place</prk:type>
+      <prk:commonComponents>
+        <prk:operatingPattern xsi:type="prk:UsageScenario" operatingPatternIndex="0">
+          <prk:type>parkAndRide</prk:type>
+        </prk:operatingPattern>
+      </prk:commonComponents>
+    </prk:hierarchyElementGeneral>
+    <prk:hierarchyElementGeneral xsi:type="prk:Place" id="88860fda-5479-4126-ae4a-52c5d3ba0582" version="1">
+      <fac:name>
+        <com:values>
+          <com:value lang="cs">P+R Holešovice</com:value>
+        </com:values>
+      </fac:name>
+      <fac:locationReference xsi:type="loc:SingleRoadLinearLocation">
+        <loc:coordinatesForDisplay>
+          <loc:latitude>50.10841</loc:latitude>
+          <loc:longitude>14.44150</loc:longitude>
+        </loc:coordinatesForDisplay>
+        <!-- OpenLR -->
+        <loc:openlrLinear>
+          <loc:firstDirection>
+            <loc:openlrLocationReferencePoint>
+              <loc:openlrCoordinates>
+                <loc:latitude>50.108091637948824</loc:latitude>
+                <loc:longitude>14.441974100106796</loc:longitude>
+              </loc:openlrCoordinates>
+              <loc:openlrLineAttributes>
+                <loc:openlrFunctionalRoadClass>frc7</loc:openlrFunctionalRoadClass>
+                <loc:openlrFormOfWay>other</loc:openlrFormOfWay>
+                <loc:openlrBearing>298</loc:openlrBearing>
+              </loc:openlrLineAttributes>
+              <loc:openlrPathAttributes>
+                <loc:openlrLowestFrcToNextLRPoint>frc7</loc:openlrLowestFrcToNextLRPoint>
+                <loc:openlrDistanceToNextLRPoint>84</loc:openlrDistanceToNextLRPoint>
+              </loc:openlrPathAttributes>
+            </loc:openlrLocationReferencePoint>
+            <loc:openlrLastLocationReferencePoint>
+              <loc:openlrCoordinates>
+                <loc:latitude>50.108622196071146</loc:latitude>
+                <loc:longitude>14.441456695678491</loc:longitude>
+              </loc:openlrCoordinates>
+              <loc:openlrLineAttributes>
+                <loc:openlrFunctionalRoadClass>frc7</loc:openlrFunctionalRoadClass>
+                <loc:openlrFormOfWay>other</loc:openlrFormOfWay>
+                <loc:openlrBearing>174</loc:openlrBearing>
+              </loc:openlrLineAttributes>
+            </loc:openlrLastLocationReferencePoint>
+            <loc:openlrOffsets>
+              <loc:openlrPositiveOffset>38</loc:openlrPositiveOffset>
+              <loc:openlrNegativeOffset>0</loc:openlrNegativeOffset>
+            </loc:openlrOffsets>
+          </loc:firstDirection>
+        </loc:openlrLinear>
+        <!-- gmlLineString -->
+        <loc:gmlLineString srsName="urn:ogc:def:crs:EPSG::4258" srsDimension="2">
+          <loc:posList>50.10821 14.44153 50.10860 14.44146</loc:posList>
+        </loc:gmlLineString>
+        <!-- GN -->
+        <loc:linearWithinLinearElement>
+          <loc:directionRelativeOnLinearSection>aligned</loc:directionRelativeOnLinearSection>
+          <loc:linearElement xsi:type="loc:LinearElementByCode">
+            <loc:linearElementReferenceModel>CZ-RSD-GlobalNetwork</loc:linearElementReferenceModel>
+            <loc:linearElementReferenceModelVersion>26.06</loc:linearElementReferenceModelVersion>
+            <loc:linearElementIdentifier>3888282</loc:linearElementIdentifier>
+          </loc:linearElement>
+          <loc:fromPoint xsi:type="loc:PercentageDistanceAlongLinearElement">
+            <loc:percentageDistanceAlong>0</loc:percentageDistanceAlong>
+          </loc:fromPoint>
+          <loc:toPoint xsi:type="loc:PercentageDistanceAlongLinearElement">
+            <loc:percentageDistanceAlong>100</loc:percentageDistanceAlong>
+          </loc:toPoint>
+        </loc:linearWithinLinearElement>
+      </fac:locationReference>
+      <prk:layer>0</prk:layer>
+      <prk:type>place</prk:type>
+      <prk:commonComponents>
+        <prk:operatingPattern xsi:type="prk:UsageScenario" operatingPatternIndex="0">
+          <prk:type>parkAndRide</prk:type>
+        </prk:operatingPattern>
+      </prk:commonComponents>
+    </prk:hierarchyElementGeneral>
+    <prk:hierarchyElementGeneral xsi:type="prk:Place" id="ad198910-2329-47bf-88e3-57e3414690e6" version="1">
+      <fac:name>
+        <com:values>
+          <com:value lang="cs">P+R Skalka</com:value>
+        </com:values>
+      </fac:name>
+      <fac:locationReference xsi:type="loc:SingleRoadLinearLocation">
+        <loc:coordinatesForDisplay>
+          <loc:latitude>50.06970</loc:latitude>
+          <loc:longitude>14.50732</loc:longitude>
+        </loc:coordinatesForDisplay>
+        <!-- OpenLR -->
+        <loc:openlrLinear>
+          <loc:firstDirection>
+            <loc:openlrLocationReferencePoint>
+              <loc:openlrCoordinates>
+                <loc:latitude>50.069650447500685</loc:latitude>
+                <loc:longitude>14.507399364019877</loc:longitude>
+              </loc:openlrCoordinates>
+              <loc:openlrLineAttributes>
+                <loc:openlrFunctionalRoadClass>frc7</loc:openlrFunctionalRoadClass>
+                <loc:openlrFormOfWay>other</loc:openlrFormOfWay>
+                <loc:openlrBearing>311</loc:openlrBearing>
+              </loc:openlrLineAttributes>
+              <loc:openlrPathAttributes>
+                <loc:openlrLowestFrcToNextLRPoint>frc7</loc:openlrLowestFrcToNextLRPoint>
+                <loc:openlrDistanceToNextLRPoint>15</loc:openlrDistanceToNextLRPoint>
+              </loc:openlrPathAttributes>
+            </loc:openlrLocationReferencePoint>
+            <loc:openlrLastLocationReferencePoint>
+              <loc:openlrCoordinates>
+                <loc:latitude>50.069740494406304</loc:latitude>
+                <loc:longitude>14.507238883641048</loc:longitude>
+              </loc:openlrCoordinates>
+              <loc:openlrLineAttributes>
+                <loc:openlrFunctionalRoadClass>frc7</loc:openlrFunctionalRoadClass>
+                <loc:openlrFormOfWay>other</loc:openlrFormOfWay>
+                <loc:openlrBearing>131</loc:openlrBearing>
+              </loc:openlrLineAttributes>
+            </loc:openlrLastLocationReferencePoint>
+            <loc:openlrOffsets>
+              <loc:openlrPositiveOffset>0</loc:openlrPositiveOffset>
+              <loc:openlrNegativeOffset>0</loc:openlrNegativeOffset>
+            </loc:openlrOffsets>
+          </loc:firstDirection>
+        </loc:openlrLinear>
+        <!-- gmlLineString -->
+        <loc:gmlLineString srsName="urn:ogc:def:crs:EPSG::4258" srsDimension="2">
+          <loc:posList>50.06965 14.50740 50.06974 14.50724</loc:posList>
+        </loc:gmlLineString>
+        <!-- GN -->
+        <loc:linearWithinLinearElement>
+          <loc:directionRelativeOnLinearSection>aligned</loc:directionRelativeOnLinearSection>
+          <loc:linearElement xsi:type="loc:LinearElementByCode">
+            <loc:linearElementReferenceModel>CZ-RSD-GlobalNetwork</loc:linearElementReferenceModel>
+            <loc:linearElementReferenceModelVersion>26.06</loc:linearElementReferenceModelVersion>
+            <loc:linearElementIdentifier>1720227</loc:linearElementIdentifier>
+          </loc:linearElement>
+          <loc:fromPoint xsi:type="loc:PercentageDistanceAlongLinearElement">
+            <loc:percentageDistanceAlong>0</loc:percentageDistanceAlong>
+          </loc:fromPoint>
+          <loc:toPoint xsi:type="loc:PercentageDistanceAlongLinearElement">
+            <loc:percentageDistanceAlong>100</loc:percentageDistanceAlong>
+          </loc:toPoint>
+        </loc:linearWithinLinearElement>
+      </fac:locationReference>
+      <prk:layer>0</prk:layer>
+      <prk:type>place</prk:type>
+      <prk:commonComponents>
+        <prk:operatingPattern xsi:type="prk:UsageScenario" operatingPatternIndex="0">
+          <prk:type>parkAndRide</prk:type>
+        </prk:operatingPattern>
+      </prk:commonComponents>
+    </prk:hierarchyElementGeneral>
+    <prk:hierarchyElementGeneral xsi:type="prk:Place" id="58bc47a0-1a93-4177-9011-6a7d7dbc7f0a" version="1">
+      <fac:name>
+        <com:values>
+          <com:value lang="cs">P+R Skalka II</com:value>
+        </com:values>
+      </fac:name>
+      <fac:locationReference xsi:type="loc:SingleRoadLinearLocation">
+        <loc:coordinatesForDisplay>
+          <loc:latitude>50.06997</loc:latitude>
+          <loc:longitude>14.51201</loc:longitude>
+        </loc:coordinatesForDisplay>
+        <!-- OpenLR -->
+        <loc:openlrLinear>
+          <loc:firstDirection>
+            <loc:openlrLocationReferencePoint>
+              <loc:openlrCoordinates>
+                <loc:latitude>50.069695136313385</loc:latitude>
+                <loc:longitude>14.511744182361973</loc:longitude>
+              </loc:openlrCoordinates>
+              <loc:openlrLineAttributes>
+                <loc:openlrFunctionalRoadClass>frc7</loc:openlrFunctionalRoadClass>
+                <loc:openlrFormOfWay>other</loc:openlrFormOfWay>
+                <loc:openlrBearing>35</loc:openlrBearing>
+              </loc:openlrLineAttributes>
+              <loc:openlrPathAttributes>
+                <loc:openlrLowestFrcToNextLRPoint>frc7</loc:openlrLowestFrcToNextLRPoint>
+                <loc:openlrDistanceToNextLRPoint>73</loc:openlrDistanceToNextLRPoint>
+              </loc:openlrPathAttributes>
+            </loc:openlrLocationReferencePoint>
+            <loc:openlrLastLocationReferencePoint>
+              <loc:openlrCoordinates>
+                <loc:latitude>50.070302428259367</loc:latitude>
+                <loc:longitude>14.511926846630317</loc:longitude>
+              </loc:openlrCoordinates>
+              <loc:openlrLineAttributes>
+                <loc:openlrFunctionalRoadClass>frc7</loc:openlrFunctionalRoadClass>
+                <loc:openlrFormOfWay>other</loc:openlrFormOfWay>
+                <loc:openlrBearing>168</loc:openlrBearing>
+              </loc:openlrLineAttributes>
+            </loc:openlrLastLocationReferencePoint>
+            <loc:openlrOffsets>
+              <loc:openlrPositiveOffset>33</loc:openlrPositiveOffset>
+              <loc:openlrNegativeOffset>0</loc:openlrNegativeOffset>
+            </loc:openlrOffsets>
+          </loc:firstDirection>
+        </loc:openlrLinear>
+        <!-- gmlLineString -->
+        <loc:gmlLineString srsName="urn:ogc:def:crs:EPSG::4258" srsDimension="2">
+          <loc:posList>50.06994 14.51202 50.07030 14.51193</loc:posList>
+        </loc:gmlLineString>
+        <!-- GN -->
+        <loc:linearWithinLinearElement>
+          <loc:directionRelativeOnLinearSection>aligned</loc:directionRelativeOnLinearSection>
+          <loc:linearElement xsi:type="loc:LinearElementByCode">
+            <loc:linearElementReferenceModel>CZ-RSD-GlobalNetwork</loc:linearElementReferenceModel>
+            <loc:linearElementReferenceModelVersion>26.06</loc:linearElementReferenceModelVersion>
+            <loc:linearElementIdentifier>3383964</loc:linearElementIdentifier>
+          </loc:linearElement>
+          <loc:fromPoint xsi:type="loc:PercentageDistanceAlongLinearElement">
+            <loc:percentageDistanceAlong>0</loc:percentageDistanceAlong>
+          </loc:fromPoint>
+          <loc:toPoint xsi:type="loc:PercentageDistanceAlongLinearElement">
+            <loc:percentageDistanceAlong>100</loc:percentageDistanceAlong>
+          </loc:toPoint>
+        </loc:linearWithinLinearElement>
+      </fac:locationReference>
+      <prk:layer>0</prk:layer>
+      <prk:type>place</prk:type>
+      <prk:commonComponents>
+        <prk:operatingPattern xsi:type="prk:UsageScenario" operatingPatternIndex="0">
+          <prk:type>parkAndRide</prk:type>
+        </prk:operatingPattern>
+      </prk:commonComponents>
+    </prk:hierarchyElementGeneral>
+    <!-- tag::place[] -->
+    <prk:hierarchyElementGeneral xsi:type="prk:Place" id="b33ca7aa-7b4e-4444-aac6-61fa79178b6a" version="1">
+      <fac:name>
+        <com:values>
+          <com:value lang="cs">P+R Zličín</com:value>
+        </com:values>
+      </fac:name>
+      <fac:locationReference xsi:type="loc:SingleRoadLinearLocation">
+        <loc:coordinatesForDisplay>
+          <loc:latitude>50.05455</loc:latitude>
+          <loc:longitude>14.28964</loc:longitude>
+        </loc:coordinatesForDisplay>
+        <!-- OpenLR -->
+        <loc:openlrLinear>
+          <loc:firstDirection>
+            <loc:openlrLocationReferencePoint>
+              <loc:openlrCoordinates>
+                <loc:latitude>50.05449754590537</loc:latitude>
+                <loc:longitude>14.289514904803548</loc:longitude>
+              </loc:openlrCoordinates>
+              <loc:openlrLineAttributes>
+                <loc:openlrFunctionalRoadClass>frc7</loc:openlrFunctionalRoadClass>
+                <loc:openlrFormOfWay>other</loc:openlrFormOfWay>
+                <loc:openlrBearing>59</loc:openlrBearing>
+              </loc:openlrLineAttributes>
+              <loc:openlrPathAttributes>
+                <loc:openlrLowestFrcToNextLRPoint>frc7</loc:openlrLowestFrcToNextLRPoint>
+                <loc:openlrDistanceToNextLRPoint>20</loc:openlrDistanceToNextLRPoint>
+              </loc:openlrPathAttributes>
+            </loc:openlrLocationReferencePoint>
+            <loc:openlrLastLocationReferencePoint>
+              <loc:openlrCoordinates>
+                <loc:latitude>50.054594975538279</loc:latitude>
+                <loc:longitude>14.28976782900344</loc:longitude>
+              </loc:openlrCoordinates>
+              <loc:openlrLineAttributes>
+                <loc:openlrFunctionalRoadClass>frc7</loc:openlrFunctionalRoadClass>
+                <loc:openlrFormOfWay>other</loc:openlrFormOfWay>
+                <loc:openlrBearing>239</loc:openlrBearing>
+              </loc:openlrLineAttributes>
+            </loc:openlrLastLocationReferencePoint>
+            <loc:openlrOffsets>
+              <loc:openlrPositiveOffset>0</loc:openlrPositiveOffset>
+              <loc:openlrNegativeOffset>9</loc:openlrNegativeOffset>
+            </loc:openlrOffsets>
+          </loc:firstDirection>
+        </loc:openlrLinear>
+        <!-- gmlLineString -->
+        <loc:gmlLineString srsName="urn:ogc:def:crs:EPSG::4258" srsDimension="2">
+          <loc:posList>50.05450 14.28951 50.05456 14.28966</loc:posList>
+        </loc:gmlLineString>
+        <!-- GN -->
+        <loc:linearWithinLinearElement>
+          <loc:directionRelativeOnLinearSection>aligned</loc:directionRelativeOnLinearSection>
+          <loc:linearElement xsi:type="loc:LinearElementByCode">
+            <loc:linearElementReferenceModel>CZ-RSD-GlobalNetwork</loc:linearElementReferenceModel>
+            <loc:linearElementReferenceModelVersion>26.06</loc:linearElementReferenceModelVersion>
+            <loc:linearElementIdentifier>4207263</loc:linearElementIdentifier>
+          </loc:linearElement>
+          <loc:fromPoint xsi:type="loc:PercentageDistanceAlongLinearElement">
+            <loc:percentageDistanceAlong>0</loc:percentageDistanceAlong>
+          </loc:fromPoint>
+          <loc:toPoint xsi:type="loc:PercentageDistanceAlongLinearElement">
+            <loc:percentageDistanceAlong>100</loc:percentageDistanceAlong>
+          </loc:toPoint>
+        </loc:linearWithinLinearElement>
+      </fac:locationReference>
+      <prk:layer>0</prk:layer>
+      <prk:type>place</prk:type>
+      <prk:commonComponents>
+        <prk:operatingPattern xsi:type="prk:UsageScenario" operatingPatternIndex="0">
+          <prk:type>parkAndRide</prk:type>
+        </prk:operatingPattern>
+      </prk:commonComponents>
+    </prk:hierarchyElementGeneral>
     <!-- end::place[] -->
+  </prk:parkingTable>
+  <!-- tag::table-city[] -->
+  <prk:parkingTable id="CzechCityParkingTable" version="1">
+    <prk:name>
+      <com:values>
+        <com:value lang="cs">Městská parkoviště</com:value>
+      </com:values>
+    </prk:name>
+    <prk:versionTime>2026-10-01T16:30:41+02:00</prk:versionTime>
+  <!-- end::table-city[] -->
+    <prk:hierarchyElementGeneral xsi:type="prk:Place" id="4516d5e2-509c-4fc5-a0bc-5add2d032251" version="1">
+      <fac:name>
+        <com:values>
+          <com:value lang="cs">Hlavní nádraží - jižní přednádraží</com:value>
+        </com:values>
+      </fac:name>
+      <fac:locationReference xsi:type="loc:SingleRoadLinearLocation">
+        <loc:coordinatesForDisplay>
+          <loc:latitude>50.08286</loc:latitude>
+          <loc:longitude>14.43348</loc:longitude>
+        </loc:coordinatesForDisplay>
+        <!-- OpenLR -->
+        <loc:openlrLinear>
+          <loc:firstDirection>
+            <loc:openlrLocationReferencePoint>
+              <loc:openlrCoordinates>
+                <loc:latitude>50.081375976381423</loc:latitude>
+                <loc:longitude>14.433953079184569</loc:longitude>
+              </loc:openlrCoordinates>
+              <loc:openlrLineAttributes>
+                <loc:openlrFunctionalRoadClass>frc7</loc:openlrFunctionalRoadClass>
+                <loc:openlrFormOfWay>singleCarriageway</loc:openlrFormOfWay>
+                <loc:openlrBearing>14</loc:openlrBearing>
+              </loc:openlrLineAttributes>
+              <loc:openlrPathAttributes>
+                <loc:openlrLowestFrcToNextLRPoint>frc7</loc:openlrLowestFrcToNextLRPoint>
+                <loc:openlrDistanceToNextLRPoint>270</loc:openlrDistanceToNextLRPoint>
+              </loc:openlrPathAttributes>
+            </loc:openlrLocationReferencePoint>
+            <loc:openlrLastLocationReferencePoint>
+              <loc:openlrCoordinates>
+                <loc:latitude>50.082656226756427</loc:latitude>
+                <loc:longitude>14.433804984741604</loc:longitude>
+              </loc:openlrCoordinates>
+              <loc:openlrLineAttributes>
+                <loc:openlrFunctionalRoadClass>frc7</loc:openlrFunctionalRoadClass>
+                <loc:openlrFormOfWay>singleCarriageway</loc:openlrFormOfWay>
+                <loc:openlrBearing>297</loc:openlrBearing>
+              </loc:openlrLineAttributes>
+            </loc:openlrLastLocationReferencePoint>
+            <loc:openlrOffsets>
+              <loc:openlrPositiveOffset>199</loc:openlrPositiveOffset>
+              <loc:openlrNegativeOffset>0</loc:openlrNegativeOffset>
+            </loc:openlrOffsets>
+          </loc:firstDirection>
+        </loc:openlrLinear>
+        <!-- gmlLineString -->
+        <loc:gmlLineString srsName="urn:ogc:def:crs:EPSG::4258" srsDimension="2">
+          <loc:posList>50.08283 14.43393 50.08286 14.43348 50.08266 14.43380</loc:posList>
+        </loc:gmlLineString>
+        <!-- GN -->
+        <loc:linearWithinLinearElement>
+          <loc:directionRelativeOnLinearSection>aligned</loc:directionRelativeOnLinearSection>
+          <loc:linearElement xsi:type="loc:LinearElementByCode">
+            <loc:linearElementReferenceModel>CZ-RSD-GlobalNetwork</loc:linearElementReferenceModel>
+            <loc:linearElementReferenceModelVersion>26.06</loc:linearElementReferenceModelVersion>
+            <loc:linearElementIdentifier>2375748</loc:linearElementIdentifier>
+          </loc:linearElement>
+          <loc:fromPoint xsi:type="loc:PercentageDistanceAlongLinearElement">
+            <loc:percentageDistanceAlong>0</loc:percentageDistanceAlong>
+          </loc:fromPoint>
+          <loc:toPoint xsi:type="loc:PercentageDistanceAlongLinearElement">
+            <loc:percentageDistanceAlong>100</loc:percentageDistanceAlong>
+          </loc:toPoint>
+        </loc:linearWithinLinearElement>
+      </fac:locationReference>
+      <prk:layer>0</prk:layer>
+      <prk:type>place</prk:type>
+    </prk:hierarchyElementGeneral>
+    <prk:hierarchyElementGeneral xsi:type="prk:Place" id="447af342-3e86-43f1-94de-0700e5fe56a7" version="1">
+      <fac:name>
+        <com:values>
+          <com:value lang="cs">Muzeum</com:value>
+        </com:values>
+      </fac:name>
+      <fac:locationReference xsi:type="loc:SingleRoadLinearLocation">
+        <loc:coordinatesForDisplay>
+          <loc:latitude>50.08076</loc:latitude>
+          <loc:longitude>14.43318</loc:longitude>
+        </loc:coordinatesForDisplay>
+        <!-- OpenLR -->
+        <loc:openlrLinear>
+          <loc:firstDirection>
+            <loc:openlrLocationReferencePoint>
+              <loc:openlrCoordinates>
+                <loc:latitude>50.081035938473292</loc:latitude>
+                <loc:longitude>14.432797536386005</loc:longitude>
+              </loc:openlrCoordinates>
+              <loc:openlrLineAttributes>
+                <loc:openlrFunctionalRoadClass>frc7</loc:openlrFunctionalRoadClass>
+                <loc:openlrFormOfWay>singleCarriageway</loc:openlrFormOfWay>
+                <loc:openlrBearing>138</loc:openlrBearing>
+              </loc:openlrLineAttributes>
+              <loc:openlrPathAttributes>
+                <loc:openlrLowestFrcToNextLRPoint>frc7</loc:openlrLowestFrcToNextLRPoint>
+                <loc:openlrDistanceToNextLRPoint>82</loc:openlrDistanceToNextLRPoint>
+              </loc:openlrPathAttributes>
+            </loc:openlrLocationReferencePoint>
+            <loc:openlrLastLocationReferencePoint>
+              <loc:openlrCoordinates>
+                <loc:latitude>50.080696128651873</loc:latitude>
+                <loc:longitude>14.433665806755881</loc:longitude>
+              </loc:openlrCoordinates>
+              <loc:openlrLineAttributes>
+                <loc:openlrFunctionalRoadClass>frc7</loc:openlrFunctionalRoadClass>
+                <loc:openlrFormOfWay>singleCarriageway</loc:openlrFormOfWay>
+                <loc:openlrBearing>253</loc:openlrBearing>
+              </loc:openlrLineAttributes>
+            </loc:openlrLastLocationReferencePoint>
+            <loc:openlrOffsets>
+              <loc:openlrPositiveOffset>0</loc:openlrPositiveOffset>
+              <loc:openlrNegativeOffset>0</loc:openlrNegativeOffset>
+            </loc:openlrOffsets>
+          </loc:firstDirection>
+        </loc:openlrLinear>
+        <!-- gmlLineString -->
+        <loc:gmlLineString srsName="urn:ogc:def:crs:EPSG::4258" srsDimension="2">
+          <loc:posList>50.08104 14.43280 50.08067 14.43331 50.08070 14.43367</loc:posList>
+        </loc:gmlLineString>
+        <!-- ALERT-C -->
+        <loc:alertCLinear xsi:type="loc:AlertCMethod2Linear">
+          <loc:alertCLocationCountryCode>2</loc:alertCLocationCountryCode>
+          <loc:alertCLocationTableNumber>25</loc:alertCLocationTableNumber>
+          <loc:alertCLocationTableVersion>11.0</loc:alertCLocationTableVersion>
+          <loc:alertCDirection>
+            <loc:alertCDirectionCoded>negative</loc:alertCDirectionCoded>
+            <loc:alertCAffectedDirection>aligned</loc:alertCAffectedDirection>
+          </loc:alertCDirection>
+          <loc:alertCMethod2PrimaryPointLocation>
+            <loc:alertCLocation>
+              <loc:specificLocation>4408</loc:specificLocation>
+            </loc:alertCLocation>
+          </loc:alertCMethod2PrimaryPointLocation>
+          <loc:alertCMethod2SecondaryPointLocation>
+            <loc:alertCLocation>
+              <loc:specificLocation>4408</loc:specificLocation>
+            </loc:alertCLocation>
+          </loc:alertCMethod2SecondaryPointLocation>
+        </loc:alertCLinear>
+        <!-- GN -->
+        <loc:linearWithinLinearElement>
+          <loc:directionRelativeOnLinearSection>aligned</loc:directionRelativeOnLinearSection>
+          <loc:linearElement xsi:type="loc:LinearElementByCode">
+            <loc:linearElementReferenceModel>CZ-RSD-GlobalNetwork</loc:linearElementReferenceModel>
+            <loc:linearElementReferenceModelVersion>26.06</loc:linearElementReferenceModelVersion>
+            <loc:linearElementIdentifier>278336</loc:linearElementIdentifier>
+          </loc:linearElement>
+          <loc:fromPoint xsi:type="loc:PercentageDistanceAlongLinearElement">
+            <loc:percentageDistanceAlong>0</loc:percentageDistanceAlong>
+          </loc:fromPoint>
+          <loc:toPoint xsi:type="loc:PercentageDistanceAlongLinearElement">
+            <loc:percentageDistanceAlong>100</loc:percentageDistanceAlong>
+          </loc:toPoint>
+        </loc:linearWithinLinearElement>
+      </fac:locationReference>
+      <prk:layer>0</prk:layer>
+      <prk:type>place</prk:type>
+    </prk:hierarchyElementGeneral>
   </prk:parkingTable>
 </d2:payload>

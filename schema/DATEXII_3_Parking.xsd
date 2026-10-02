@@ -79,29 +79,9 @@
       <xs:documentation>Defines the supported lists of types of parking hierarchy elements permissible</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:enumeration value="campus">
-        <xs:annotation>
-          <xs:documentation>Typically defines a large facility (such as a university campus, or an airport), or a large geographic zone (such as a city or a town), which may contain numerous places that can be logically reported together.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value="place">
         <xs:annotation>
           <xs:documentation>A place or location used for parking, loading, unloading, standing, or some other mobility or transport related activity.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="subplaceElement">
-        <xs:annotation>
-          <xs:documentation>A sub-division of a place for the convenience of the operator to segment the place and identify varied uses for parking and mobility related operations or other purposes.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="identifiedArea">
-        <xs:annotation>
-          <xs:documentation>An identifiable discrete bounded geographic zone that shares common characteristics and is used for parking and mobility related operations  or other purposes.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="space">
-        <xs:annotation>
-          <xs:documentation>A single space for parking or other mobility related purposes, usually designed for one vehicle, which may, but not necessarily, be denoted by painted or other road surface marker.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="_extended" />
@@ -215,16 +195,6 @@
           <xs:documentation>A parking site for people who are sharing their cars.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="motorwayParking">
-        <xs:annotation>
-          <xs:documentation>The parking is located directly on a motorway or a similar type of road.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="nearbyMotorwayParking">
-        <xs:annotation>
-          <xs:documentation>The parking is located with some distance to a motorway or a similar type of road but focussed on travellers from this motorway.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value="overnightParking">
         <xs:annotation>
           <xs:documentation>The parking site or space(s) are designed for overnight parking. Note that the absence of this scenario does not automatically mean a prohibition of overnight parking. See also PermitsAndProhibitions.</xs:documentation>
@@ -255,16 +225,6 @@
           <xs:documentation>Parking in relation or in the near of a point of interest</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="restArea">
-        <xs:annotation>
-          <xs:documentation>The parking site is associated with a rest area, i.e. people can relax some time outside their car there. Note that the presence of some bench, picnic place or toilet is already sufficient; there is no need for a restaurant or a building.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="serviceArea">
-        <xs:annotation>
-          <xs:documentation>The parking site is associated with a service area.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value="specialLocation">
         <xs:annotation>
           <xs:documentation>The parking is connected to or part of a special location which can be specified by an extra attribute.</xs:documentation>
@@ -273,11 +233,6 @@
       <xs:enumeration value="staffGuidesToSpace">
         <xs:annotation>
           <xs:documentation>Staff guides to space.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="truckParking">
-        <xs:annotation>
-          <xs:documentation>The parking site is designed for lorries (other vehicles are allowed as well).</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="vehicleLift">

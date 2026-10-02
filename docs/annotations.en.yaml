@@ -16,4 +16,24 @@
 # _enum:                # překlady hodnot výčtů pro celý formát (přepisují sdílený slovník kitu)
 #   ProbabilityEnum.certain: jistá
 # _unused_types: [LinearLocation]   # třídy, které schéma připouští, ale formát nepoužívá (ve výčtech variant se neuvádějí)
-{}
+
+FacilityObject:
+  name:
+    ndic: Name of the car park; the name of a P+R car park starts with "P+R" and the car park belongs to the table `CzechParkAndRideTable`.
+CommonComponents:
+  operatingPattern:
+    card: 0..1
+    ndic: One usage scenario (`UsageScenario`); a P+R car park has `parkAndRide`.
+  characteristics:
+    card: 0..1
+    ndic: One capacity of the car park (the car park serves one type of vehicles).
+SingleRoadLinearLocation:
+  linearWithinLinearElement:
+    card: 1..2
+    ndic: Global Network section on which the point of the car park lies; two sections if the point lies on their boundary.
+  alertCLinear:
+    card: 0..1
+    ndic: Only for car parks whose section has an ALERT-C linear location.
+Location:
+  coordinatesForDisplay:
+    ndic: Point of the car park; until the operator provides the exact point (e.g. the entrance), the middle of the access road.

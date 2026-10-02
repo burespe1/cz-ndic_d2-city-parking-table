@@ -1,4 +1,152 @@
 == Concepts
 
-Description of the format concepts: content of the publication, static vs. dynamic part,
-location referencing, record versioning. References: <<EN16157-3>>.
+The format provides the static description of city car parks and park-and-ride (P+R) car parks:
+identification, name, location, capacity, usage, operator and opening times. The current occupancy is
+provided by the separate format `cz-ndic_d2-city-parking-status`, which references the car park tables.
+
+The format is based on the DATEX II publication `prk:ParkingTablePublication` <<TS16157-6>> and is a *light
+subset* of the profile for truck parking (ITP): it uses only the lowest level of the hierarchy –
+the car park (`prk:Place`) as a whole. Car park locations are described by the methods of the DATEX II model <<EN16157-3>> directly in the table.
+
+[[obalka]]
+=== Envelope and publication header
+
+Each message is a DATEX II 3 document with the root element `d2:payload`. The `xsi:type` attribute of the root element
+specifies the publication type (here `prk:ParkingTablePublication`), the `modelBaseVersion="3"` attribute
+the model version and the `@lang` attribute the default language of texts.
+
+The format the message conforms to is identified solely by attributes of the root element:
+
+[horizontal]
+`@profileName`:: format identifier without version (`cz-ndic_d2-city-parking-table`),
+`@profileVersion`:: format version (`1.0`).
+
+The publication header contains:
+
+* `feedType` – identifier of the data source (distribution) in the register of the national access point <<nap>>:
+** the source refers to the format in which it provides data; the format of the message is identified by the
+   `@profileName` and `@profileVersion` attributes,
+** the `feedDescription` element is not used.
+* `publicationTime` – time the publication content was created; if the content has not changed since the
+  previous publication, the original time is kept; a new time is set only when the content changes.
+* `publicationCreator` – publication provider:
+** country code in lower case (`cz`),
+** provider abbreviation (`nationalIdentifier`).
+* `headerInformation` – handling of the information; NDIC always sets:
+** `confidentiality` = `noRestriction`,
+** `informationStatus` = `real`.
+
+All times in the message include the time zone.
+
+.Root element and publication header (sample `pr-table.xml`)
+[source,xml]
+----
+include::{samplesdir}/pr-table.xml[lines=2]
+include::{samplesdir}/pr-table.xml[tag=header,indent=2]
+  ...
+----
+
+[[tabulka]]
+=== Car park tables
+
+The publication contains one or more car park tables `parkingTable`, divided by the type of car park
+(or by area). Each table has an identifier and a version, a name (`name`) and the time the version was
+issued (`versionTime`):
+
+* `CzechParkAndRideTable` – P+R car parks,
+* `CzechCityParkingTable` – other city car parks.
+
+The status publication (`cz-ndic_d2-city-parking-status`) references the identifier and version of the
+tables. A new version of a table is issued when its content changes; an unchanged car park keeps its
+identifier and version.
+
+.Table of P+R car parks (sample `pr-table.xml`)
+[source,xml]
+----
+include::{samplesdir}/pr-table.xml[tag=table-head,indent=0]
+  ...
+</prk:parkingTable>
+----
+
+[[parkoviste]]
+=== Car park
+
+Each car park is one element `hierarchyElementGeneral` of the type `prk:Place`:
+
+* `@id` – permanent identifier of the car park (GUID), the same as the identifier under which NDIC
+  publishes the car park,
+* `@version` – version of the car park description.
+
+[cols="2,1,4",options="header"]
+|===
+|Element |Obligation |Content
+|`name` |mandatory |name of the car park
+|`locationReference` |mandatory |location of the car park, see <<polohy>>
+|`layer` |mandatory |hierarchy level, always `0`
+|`type` |mandatory |type of the hierarchy element, always `place`
+|`commonComponents/characteristics` |recommended |capacity (`spacesTotal`) and type of structure (`structureType`)
+|`commonComponents/operatingPattern` |mandatory for P+R |usage: `prk:UsageScenario` with `type` = `parkAndRide`
+|`operator` |recommended |operator (name, contact – e-mail, telephone)
+|`operatingHours` |recommended |opening times (open all hours); unknown opening times are not given
+|`externalIdentifier` |optional |identifier of the car park at the operator
+|===
+
+.P+R car park (sample `pr-table.xml`)
+[source,xml]
+----
+include::{samplesdir}/pr-table.xml[tag=place,indent=0]
+----
+
+[[polohy]]
+== Location referencing
+
+The location of a car park is given directly in the table, in the `locationReference` element of the car park, of the type
+`loc:SingleRoadLinearLocation`. The car park is described as a point (`coordinatesForDisplay`). The linear methods
+describe the section of the car park road (access or internal road) on which the point lies, in one direction:
+one Global Network section, two sections only if the point lies on their boundary. OpenLR and the location path
+describe the same section.
+
+[cols="2,3,4",options="header"]
+|===
+|Method |Element |Use
+|Coordinates for display |`coordinatesForDisplay` |point of the car park (ETRS89); always
+|OpenLR |`openlrLinear` |always (only `firstDirection`)
+|Global Network |`linearWithinLinearElement` with `loc:LinearElementByCode` |always; one section, two only on a section boundary
+|ALERT-C |`alertCLinear` (`loc:AlertCMethod2Linear`) |only where the location exists in the ALERT-C location table
+|Location path |`gmlLineString` |line in ETRS89; the only exact coordinates of the start and end of the section (<<prubeh>>)
+|===
+
+* The point of the car park (`coordinatesForDisplay`) lies on the described section. Until the car park
+  operator provides the exact point (e.g. the entrance), the point is the middle of the access road.
+* Predefined locations (format `cz-ndic_d2-pls`) are not referenced – the table is self-contained.
+
+IMPORTANT: The location referencing methods are described identically in all NDIC formats that use them.
+Graphical illustrations of the methods (ALERT-C locations and direction, bidirectional location in OpenLR, location
+composed of Global Network sections) are given in the documentation of the format `cz-ndic_d2-pls`,
+chapter Location referencing.
+
+.Location of a car park (sample `pr-table.xml`)
+[source,xml]
+----
+include::{samplesdir}/pr-table.xml[tag=place-loc,indent=0]
+----
+
+[[openlr]]
+=== OpenLR location referencing
+
+include::{kitdir}/shared/en/poloha/openlr.adoc[]
+
+[[gn]]
+=== Global Network location referencing
+
+include::{kitdir}/shared/en/poloha/gn.adoc[]
+
+[[alertc]]
+=== ALERT-C location referencing
+
+include::{kitdir}/shared/en/poloha/alertc.adoc[]
+
+[[prubeh]]
+=== Location path
+
+include::{kitdir}/shared/en/poloha/prubeh.adoc[]

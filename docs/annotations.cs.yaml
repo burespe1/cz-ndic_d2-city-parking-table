@@ -16,4 +16,24 @@
 # _enum:                # překlady hodnot výčtů pro celý formát (přepisují sdílený slovník kitu)
 #   ProbabilityEnum.certain: jistá
 # _unused_types: [LinearLocation]   # třídy, které schéma připouští, ale formát nepoužívá (ve výčtech variant se neuvádějí)
-{}
+
+FacilityObject:
+  name:
+    ndic: Název parkoviště; název parkoviště P+R začíná „P+R“ a parkoviště patří do tabulky `CzechParkAndRideTable`.
+CommonComponents:
+  operatingPattern:
+    card: 0..1
+    ndic: Jeden scénář užití (`UsageScenario`); parkoviště P+R má `parkAndRide`.
+  characteristics:
+    card: 0..1
+    ndic: Jedna kapacita parkoviště (parkoviště slouží jednomu typu vozidel).
+SingleRoadLinearLocation:
+  linearWithinLinearElement:
+    card: 1..2
+    ndic: Úsek sítě Global Network, na kterém leží bod parkoviště; dva úseky, leží-li bod na jejich hranici.
+  alertCLinear:
+    card: 0..1
+    ndic: Jen u parkovišť, jejichž úsek má lineární polohu ALERT-C.
+Location:
+  coordinatesForDisplay:
+    ndic: Bod parkoviště; dokud správce nedodá přesný bod (např. vjezd), střed příjezdové komunikace.
